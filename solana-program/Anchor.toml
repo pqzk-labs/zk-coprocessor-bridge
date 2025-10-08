@@ -1,0 +1,10 @@
+[features]
+resolution = true
+skip-lint = true
+
+[programs.devnet]
+zk-coprocessor-program = "A6BL2woTfWSHHYULjqB9craU67WWPPkF8GnoJR8vG8E3"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
