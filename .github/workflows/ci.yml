@@ -17,11 +17,7 @@ jobs:
           # Solana CLI
           curl -sSfL https://solana-install.solana.workers.dev | bash
           echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
-          # Foundry
-          curl -L https://foundry.paradigm.xyz | bash
-          echo "$HOME/.foundry/bin" >> "$GITHUB_PATH"
-          ~/.foundry/bin/foundryup
-          # Node 24
+          # Node 24 (for aztec-cli)
           curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
           sudo apt-get install -y nodejs
           # Cargo bin PATH (for avm / aztec-nargo)
@@ -34,6 +30,12 @@ jobs:
           cargo install --git https://github.com/AztecProtocol/aztec-packages aztec-nargo
           npm i -g @aztec/cli
 
+      # Foundry (stable) via official action
+      - name: Foundry toolchain
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+
       # Solana: anchor build
       - name: Anchor build
         working-directory: solana-program
@@ -44,16 +46,14 @@ jobs:
         working-directory: evm-contracts
         run: forge build
 
-      # Aztec: aztec-nargo compile + aztec-postprocess-contract
+      # Aztec: aztec-nargo compile + postprocess
       - name: Aztec compile & postprocess
         working-directory: aztec-contracts/contracts/zk-coprocessor-contracts
         run: |
           aztec-nargo compile
           aztec-postprocess-contract
 
-      # TypeScript apps: install + build
+      # TypeScript apps
       - name: TypeScript build
         working-directory: apps
-        run: |
-          npm install --no-fund --no-audit
-          npm run build
+        run: npm run build
