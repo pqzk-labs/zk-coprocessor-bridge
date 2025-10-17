@@ -1,4 +1,5 @@
 # Runs builds for Solana/Anchor, EVM/Foundry, Aztec/Noir, and TypeScript apps.
+
 name: CI
 on:
   push: { branches: ["**"] }
@@ -10,50 +11,52 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Setup toolchains
+      # System toolchains (Rust/Cargo for avm, Solana CLI, basic libs)
+      - name: Setup system toolchains
         run: |
           sudo apt-get update -y
           sudo apt-get install -y build-essential pkg-config libudev-dev llvm libclang-dev protobuf-compiler libssl-dev curl jq tar rustc cargo
-          # Solana CLI
           curl -sSfL https://solana-install.solana.workers.dev | bash
           echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
-          # Node 24 (for aztec-cli)
-          curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
-          sudo apt-get install -y nodejs
-          # Cargo bin PATH (for avm / aztec-nargo)
           echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
-          export PATH="$HOME/.cargo/bin:$PATH"
-          # Anchor (avm)
           cargo install --git https://github.com/coral-xyz/anchor avm --locked
           avm install latest && avm use latest
-          # Aztec tools
-          cargo install --git https://github.com/AztecProtocol/aztec-packages aztec-nargo
-          npm i -g @aztec/cli
+          anchor --version && solana --version
 
-      # Foundry (stable) via official action
+      # Foundry via official action (avoids PATH issues)
       - name: Foundry toolchain
         uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: stable
+        with: { version: stable }
 
-      # Solana: anchor build
+      # Aztec CLI (provides `aztec nargo` and `aztec postprocess-contract`)
+      - name: Aztec CLI
+        run: |
+          curl -s https://install.aztec.network | bash
+          echo "$HOME/.aztec/bin" >> "$GITHUB_PATH"
+          ~/.aztec/bin/aztec-up -v latest
+          aztec --version
+
+      # Solana/Anchor build
       - name: Anchor build
         working-directory: solana-program
         run: anchor build
 
-      # EVM: forge build
+      # EVM/Foundry build
       - name: Foundry build
         working-directory: evm-contracts
         run: forge build
 
-      # Aztec: aztec-nargo compile + postprocess
+      # Aztec/Noir compile + postprocess
       - name: Aztec compile & postprocess
         working-directory: aztec-contracts/contracts/zk-coprocessor-contracts
         run: |
-          aztec-nargo compile
-          aztec-postprocess-contract
+          aztec nargo compile
+          aztec postprocess-contract
 
-      # TypeScript apps
+      # Node for TypeScript build
+      - name: Node.js
+        uses: actions/setup-node@v5
+        with: { node-version: 24 }
       - name: TypeScript build
         working-directory: apps
         run: npm run build
