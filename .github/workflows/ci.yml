@@ -11,19 +11,22 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      # System toolchains (Rust/Cargo for avm, Solana CLI, basic libs)
-      - name: Setup system toolchains
+      # Toolchains (system libs, Solana CLI, Anchor avm)
+      - name: Setup toolchains
         run: |
           sudo apt-get update -y
           sudo apt-get install -y build-essential pkg-config libudev-dev llvm libclang-dev protobuf-compiler libssl-dev curl jq tar rustc cargo
           curl -sSfL https://solana-install.solana.workers.dev | bash
           echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
           echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+          # enable Solana in this step too
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+          solana --version
           cargo install --git https://github.com/coral-xyz/anchor avm --locked
           avm install latest && avm use latest
-          anchor --version && solana --version
+          anchor --version
 
-      # Foundry via official action (avoids PATH issues)
+      # Foundry (official action avoids PATH issues)
       - name: Foundry toolchain
         uses: foundry-rs/foundry-toolchain@v1
         with: { version: stable }
@@ -33,30 +36,30 @@ jobs:
         run: |
           curl -s https://install.aztec.network | bash
           echo "$HOME/.aztec/bin" >> "$GITHUB_PATH"
-          ~/.aztec/bin/aztec-up -v latest
+          export PATH="$HOME/.aztec/bin:$PATH"
           aztec --version
 
-      # Solana/Anchor build
+      # Solana: anchor build
       - name: Anchor build
         working-directory: solana-program
         run: anchor build
 
-      # EVM/Foundry build
+      # EVM: forge build
       - name: Foundry build
         working-directory: evm-contracts
         run: forge build
 
-      # Aztec/Noir compile + postprocess
+      # Aztec/Noir: compile + postprocess
       - name: Aztec compile & postprocess
         working-directory: aztec-contracts/contracts/zk-coprocessor-contracts
         run: |
           aztec nargo compile
           aztec postprocess-contract
 
-      # Node for TypeScript build
-      - name: Node.js
+      # TypeScript (no npm ci per your request)
+      - name: TypeScript build
         uses: actions/setup-node@v5
         with: { node-version: 24 }
-      - name: TypeScript build
+      - name: Build apps
         working-directory: apps
         run: npm run build
