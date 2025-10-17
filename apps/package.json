@@ -1,0 +1,33 @@
+{
+  "name": "zk-coprocessor-bridge-apps",
+  "version": "0.1.0",
+  "private": true,
+  "bin": {
+    "zkcb": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/cli.js",
+    "dev": "tsx src/cli.ts",
+    "relayer": "tsx src/relayer.ts",
+    "send": "tsx src/send.ts"
+  },
+  "dependencies": {
+    "@aztec/aztec.js": "2.0.2",
+    "@certusone/wormhole-sdk": "^0.10.18",
+    "@coral-xyz/anchor": "^0.31.1",
+    "@solana/web3.js": "^1.98.4",
+    "axios": "^1.7.2",
+    "bn.js": "^5.2.2",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "ethers": "^5.8.0"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.2.0",
+    "@types/node": "^20.12.7",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4"
+  },
+  "license": "MIT OR Apache-2.0"
+}
