@@ -1,0 +1,59 @@
+# Runs builds for Solana/Anchor, EVM/Foundry, Aztec/Noir, and TypeScript apps.
+name: CI
+on:
+  push: { branches: ["**"] }
+  pull_request: { branches: ["**"] }
+
+jobs:
+  build-all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup toolchains
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y build-essential pkg-config libudev-dev llvm libclang-dev protobuf-compiler libssl-dev curl jq tar rustc cargo
+          # Solana CLI
+          curl -sSfL https://solana-install.solana.workers.dev | bash
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
+          # Foundry
+          curl -L https://foundry.paradigm.xyz | bash
+          echo "$HOME/.foundry/bin" >> "$GITHUB_PATH"
+          ~/.foundry/bin/foundryup
+          # Node 24
+          curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+          # Cargo bin PATH (for avm / aztec-nargo)
+          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.cargo/bin:$PATH"
+          # Anchor (avm)
+          cargo install --git https://github.com/coral-xyz/anchor avm --locked
+          avm install latest && avm use latest
+          # Aztec tools
+          cargo install --git https://github.com/AztecProtocol/aztec-packages aztec-nargo
+          npm i -g @aztec/cli
+
+      # Solana: anchor build
+      - name: Anchor build
+        working-directory: solana-program
+        run: anchor build
+
+      # EVM: forge build
+      - name: Foundry build
+        working-directory: evm-contracts
+        run: forge build
+
+      # Aztec: aztec-nargo compile + aztec-postprocess-contract
+      - name: Aztec compile & postprocess
+        working-directory: aztec-contracts/contracts/zk-coprocessor-contracts
+        run: |
+          aztec-nargo compile
+          aztec-postprocess-contract
+
+      # TypeScript apps: install + build
+      - name: TypeScript build
+        working-directory: apps
+        run: |
+          npm install --no-fund --no-audit
+          npm run build
