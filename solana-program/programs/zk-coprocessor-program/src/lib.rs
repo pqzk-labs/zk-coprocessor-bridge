@@ -3,8 +3,9 @@
 //! Signs with the emitter PDA and invokes `post_message` with selected finality.
 
 use anchor_lang::prelude::*;
-use anchor_lang::AccountDeserialize; // Manually decodes BridgeData
+use anchor_lang::AccountDeserialize; // Manual BridgeData decode
 use wormhole_anchor_sdk::wormhole;
+use wormhole_anchor_sdk::wormhole::program::Wormhole;
 
 declare_id!("A6BL2woTfWSHHYULjqB9craU67WWPPkF8GnoJR8vG8E3");
 
@@ -25,12 +26,12 @@ pub mod zk_coprocessor_program {
             wormhole::types::Finality::Finalized
         };
 
-        // Validates Bridge owner equals Wormhole program.
-        if *ctx.accounts.config.owner != ctx.accounts.wormhole_program.key() {
-            return err!(ZkError::ConfigOwnerMismatch);
-        }
+        require_keys_eq!(
+            *ctx.accounts.config.owner,
+            ctx.accounts.wormhole_program.key(),
+            ZkError::ConfigOwnerMismatch
+        );
 
-        // Reads fee and drops the borrow before CPI.
         let fee: u64 = {
             let data_ref = ctx.accounts.config.try_borrow_data()?;
             let mut data_slice: &[u8] = &*data_ref;
@@ -39,7 +40,6 @@ pub mod zk_coprocessor_program {
             bridge_data.fee()
         };
 
-        // Transfers fee to fee_collector if needed.
         if fee > 0 {
             let ix = anchor_lang::solana_program::system_instruction::transfer(
                 &ctx.accounts.payer.key(),
@@ -55,12 +55,11 @@ pub mod zk_coprocessor_program {
             )?;
         }
 
-        // Builds CPI context for Wormhole Core post_message.
         let cpi_accounts = wormhole::instructions::PostMessage {
             config:         ctx.accounts.config.to_account_info(),
-            message:        ctx.accounts.message.to_account_info(),   // Message account signs externally
-            emitter:        ctx.accounts.emitter.to_account_info(),   // Signs with PDA (with_signer)
-            sequence:       ctx.accounts.sequence.to_account_info(),  // Sequence PDA for emitter
+            message:        ctx.accounts.message.to_account_info(),
+            emitter:        ctx.accounts.emitter.to_account_info(),
+            sequence:       ctx.accounts.sequence.to_account_info(),
             payer:          ctx.accounts.payer.to_account_info(),
             fee_collector:  ctx.accounts.fee_collector.to_account_info(),
             clock:          ctx.accounts.clock.to_account_info(),
@@ -68,7 +67,6 @@ pub mod zk_coprocessor_program {
             system_program: ctx.accounts.system_program.to_account_info(),
         };
 
-        // Makes the emitter PDA a signer.
         let bump = ctx.bumps.emitter;
         let bump_arr = [bump];
         let emitter_seeds: [&[u8]; 2] = [b"emitter", &bump_arr];
@@ -82,31 +80,98 @@ pub mod zk_coprocessor_program {
 
         wormhole::instructions::post_message(cpi_ctx, batch_id, payload, fin)
     }
+
+    /// Initializes receipt config.
+    pub fn init_receipt_config(
+        ctx: Context<InitReceiptConfig>,
+        evm_chain: u16,
+        emitter: [u8; 32],
+    ) -> Result<()> {
+        let cfg = &mut ctx.accounts.cfg;
+        cfg.admin = ctx.accounts.admin.key();
+        cfg.evm_chain = evm_chain;
+        cfg.emitter = emitter;
+        cfg.bump = ctx.bumps.cfg;
+        Ok(())
+    }
+
+    /// Records a receipt from a PostedVAA.
+    pub fn record_receipt_from_vaa(
+        ctx: Context<RecordReceiptFromVaa>,
+        emitter: [u8; 32],
+        sequence: u64,
+    ) -> Result<()> {
+        require_keys_eq!(
+            *ctx.accounts.posted_vaa.owner,
+            ctx.accounts.wormhole_program.key(),
+            ZkError::InvalidPostedVaaOwner
+        );
+
+        let cfg = &ctx.accounts.cfg;
+        require!(emitter == cfg.emitter, ZkError::EmitterAddressMismatch);
+
+        let receipt = &mut ctx.accounts.receipt;
+        receipt.emitter = emitter;
+        receipt.sequence = sequence;
+        receipt.vaa_account = ctx.accounts.posted_vaa.key();
+        receipt.posted_timestamp = Clock::get()?.unix_timestamp;
+        receipt.bump = ctx.bumps.receipt;
+
+        emit!(ReceiptRecorded {
+            emitter,
+            sequence,
+            vaa: receipt.vaa_account,
+        });
+
+        Ok(())
+    }
+
+    /// Records a receipt without VAA (admin only).
+    pub fn record_receipt_direct(
+        ctx: Context<RecordReceiptDirect>,
+        emitter: [u8; 32],
+        sequence: u64,
+    ) -> Result<()> {
+        require_keys_eq!(ctx.accounts.cfg.admin, ctx.accounts.admin.key(), ZkError::NotAdmin);
+
+        let r = &mut ctx.accounts.receipt;
+        r.emitter = emitter;
+        r.sequence = sequence;
+        r.vaa_account = Pubkey::default();
+        r.posted_timestamp = Clock::get()?.unix_timestamp;
+        r.bump = ctx.bumps.receipt;
+
+        emit!(ReceiptRecorded {
+            emitter,
+            sequence,
+            vaa: r.vaa_account,
+        });
+
+        Ok(())
+    }
 }
 
 #[derive(Accounts)]
 pub struct PostWormholeMessage<'info> {
-    /// Holds the Core Bridge config. CHECK: Verifies owner equals wormhole_program at runtime.
+    /// CHECK: Points to Wormhole Core Bridge(Config).
     #[account(mut)]
     pub config: AccountInfo<'info>,
 
-    /// Holds the newly created message. Message account signs externally.
     #[account(mut)]
     pub message: Signer<'info>,
 
-    /// Holds the program emitter PDA (seeds=["emitter"]). CHECK: Verified by Core.
+    /// CHECK: Verified by Wormhole Core.
     #[account(seeds = [b"emitter"], bump)]
     pub emitter: AccountInfo<'info>,
 
-    /// Holds the Sequence PDA bound to the emitter. CHECK: Verified by Core.
+    /// CHECK: Verified by Wormhole Core.
     #[account(mut)]
     pub sequence: AccountInfo<'info>,
 
-    /// Pays fee / rent / CPI.
     #[account(mut)]
     pub payer: Signer<'info>,
 
-    /// Holds the Wormhole fee_collector (Core PDA).
+    /// CHECK: Derives from Bridge(Config).
     #[account(mut)]
     pub fee_collector: AccountInfo<'info>,
 
@@ -114,8 +179,106 @@ pub struct PostWormholeMessage<'info> {
     pub rent:  Sysvar<'info, Rent>,
     pub system_program: Program<'info, System>,
 
-    /// Holds the Wormhole Core program (devnet/testnet).
-    pub wormhole_program: AccountInfo<'info>,
+    pub wormhole_program: Program<'info, Wormhole>,
+}
+
+#[derive(Accounts)]
+pub struct InitReceiptConfig<'info> {
+    #[account(
+        init,
+        payer = admin,
+        space = 8 + ReceiptConfig::SIZE,
+        seeds = [b"cfg"],
+        bump
+    )]
+    pub cfg: Account<'info, ReceiptConfig>,
+
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+#[instruction(emitter: [u8; 32], sequence: u64)]
+pub struct RecordReceiptFromVaa<'info> {
+    #[account(
+        mut,
+        seeds = [b"cfg"],
+        bump = cfg.bump
+    )]
+    pub cfg: Account<'info, ReceiptConfig>,
+
+    /// CHECK: Owned by Wormhole Core.
+    pub posted_vaa: UncheckedAccount<'info>,
+
+    pub wormhole_program: Program<'info, Wormhole>,
+
+    #[account(
+        init_if_needed,
+        payer = payer,
+        space = 8 + Receipt::SIZE,
+        seeds = [b"receipt", emitter.as_ref(), &sequence.to_be_bytes()],
+        bump
+    )]
+    pub receipt: Account<'info, Receipt>,
+
+    #[account(mut)]
+    pub payer: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+#[instruction(emitter: [u8; 32], sequence: u64)]
+pub struct RecordReceiptDirect<'info> {
+    #[account(
+        mut,
+        seeds = [b"cfg"],
+        bump = cfg.bump
+    )]
+    pub cfg: Account<'info, ReceiptConfig>,
+
+    #[account(
+        init_if_needed,
+        payer = admin,
+        space = 8 + Receipt::SIZE,
+        seeds = [b"receipt", emitter.as_ref(), &sequence.to_be_bytes()],
+        bump
+    )]
+    pub receipt: Account<'info, Receipt>,
+
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[account]
+pub struct ReceiptConfig {
+    pub admin: Pubkey,
+    pub evm_chain: u16,
+    pub emitter: [u8; 32],
+    pub bump: u8,
+}
+impl ReceiptConfig {
+    pub const SIZE: usize = 32 + 2 + 32 + 1;
+}
+
+#[account]
+pub struct Receipt {
+    pub emitter: [u8; 32],
+    pub sequence: u64,
+    pub vaa_account: Pubkey,
+    pub posted_timestamp: i64,
+    pub bump: u8,
+}
+impl Receipt {
+    pub const SIZE: usize = 32 + 8 + 32 + 8 + 1;
+}
+
+#[event]
+pub struct ReceiptRecorded {
+    pub emitter: [u8; 32],
+    pub sequence: u64,
+    pub vaa: Pubkey,
 }
 
 #[error_code]
@@ -124,4 +287,7 @@ pub enum ZkError {
     ConfigOwnerMismatch,
     #[msg("failed to deserialize Wormhole BridgeData")]
     BridgeDeserialize,
+    #[msg("admin only")] NotAdmin,
+    #[msg("invalid owner for PostedVaa account")] InvalidPostedVaaOwner,
+    #[msg("emitter address mismatch")] EmitterAddressMismatch,
 }
