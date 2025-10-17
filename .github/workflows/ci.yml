@@ -53,8 +53,8 @@ jobs:
       - name: Aztec compile & postprocess
         working-directory: aztec-contracts/contracts/zk-coprocessor-contracts
         run: |
-          aztec nargo compile
-          aztec postprocess-contract
+          aztec-nargo compile
+          aztec-postprocess-contract
 
       # TypeScript (no npm ci per your request)
       - name: TypeScript build
