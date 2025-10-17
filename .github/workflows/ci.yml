@@ -60,6 +60,9 @@ jobs:
       - name: TypeScript build
         uses: actions/setup-node@v5
         with: { node-version: 24 }
+      - name: npm install
+        working-directory: apps
+        run: npm install
       - name: Build apps
         working-directory: apps
         run: npm run build
