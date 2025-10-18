@@ -15,7 +15,7 @@
   "dependencies": {
     "@aztec/aztec.js": "2.0.2",
     "@certusone/wormhole-sdk": "^0.10.18",
-    "@coral-xyz/anchor": "^0.31.1",
+    "@coral-xyz/anchor": "^0.32.1",
     "@solana/web3.js": "^1.98.4",
     "axios": "^1.7.2",
     "bn.js": "^5.2.2",
