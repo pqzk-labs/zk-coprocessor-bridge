@@ -1,0 +1,686 @@
+dev@x:~/zk-coprocessor-bridge/apps$ npm run send -- --payload "hello aztec!"
+
+> zk-coprocessor-bridge-apps@0.1.0 send
+> tsx src/send.ts --payload hello aztec!
+
+[keys] programId        = A6BL2woTfWSHHYULjqB9craU67WWPPkF8GnoJR8vG8E3
+[keys] emitter PDA      = 46fKjr3bEDhMoN31q6BThQwGuYD1CbJderwJwmdbi2WG
+[keys] bridge (config)  = 6bi4JGDoRwUs9TYBuvoA7dUVyikTJDrJsJU1ew6KVLiu
+[keys] feeCollector     = 7s3a1ycs16d6SNDumaRtjcoyMaTDZPavzgsmS3uUZYWX
+[keys] sequenceByEmitter= UGSQawttHDrd2gwRRhi5ZaD1qs3RiXM1sts8KLvkwy4 <- use this
+[keys] sequenceByProgId = 51BVUKfEwxViFWQRdYqGpnzps2FGpKhnPUMbXY6AVxEB (wrong)
+[keys] message (new)    = CABav1JnxMNjtjndyXsa8FrqNfCU3vBd6jytGN8qSJSB
+3eUC1jNhDkPHzHNntn4pc4wGqj4q3My8F9yZAfimvQSx66FQBFDHjSzj8rRQudPaSWVhPjLCNaXxUQGn9B3Saj3z
+
+
+dev@x:~/zk-coprocessor-bridge/apps$ npm run relayer -- --job receipt
+
+> zk-coprocessor-bridge-apps@0.1.0 relayer
+> tsx src/relayer.ts --job receipt
+
+2025-10-11T17:22:08.072Z boot(receipt) portal=0x1E6c87a33e0FB04121D15E5119af68A962EFF76F emitter(sol)=0x2e064bffb6d1f2850808539befd750caea4efb64ed96cf144d1f90cb9816adcd emitter(evm32)=0x0000000000000000000000001e6c87a33e0fb04121d15e5119af68a962eff76f mode=direct solRpc=https://api.devnet.solana.com
+2025-10-11T17:22:09.728Z [receipt-state] loaded /home/dev/.zkcb/receipt-state.json { lastEvmBlock: 9390246 }
+2025-10-11T17:22:09.778Z running(receipt)...
+2025-10-11T17:22:30.170Z [sol] record_receipt_direct sent 3pYnXQkGjEwHtJepvYKt65QaXAvxecXaFYYs9y5e5HwUgtBzTYfjfrYBNJ8azMFA29CZdjYjFWL7fZhpvff9N13K { receiptPda: '4WkXtMmJL4sZejyHq3SQUEwTSAqE63n89Ki5x5SsX7eM' }
+2025-10-11T17:22:30.171Z [receipt-state] saved { lastEvmBlock: 9390248 }
+2025-10-11T17:22:30.171Z [receipt] done origSeq 19 evmBlock 9390248
+2025-10-11T17:22:31.285Z [receipt] already recorded on Solana; skip 19
+2025-10-11T17:22:33.944Z [sol] record_receipt_direct sent 2jrvxjy6JhemKagzrHiaE5VLqmTSVS6cBCymkSzDezEmUTx9qqzkDYAtSeJXBH4Z6yt5metV7fV2z2ZWihAatPfm { receiptPda: '4WkXtMmJL4sZejyHq3SQUEwTSAqE63n89Ki5x5SsX7eM' }
+2025-10-11T17:22:33.945Z [receipt-state] saved { lastEvmBlock: 9390248 }
+2025-10-11T17:22:33.945Z [receipt] done origSeq 19 evmBlock 9390248
+2025-10-11T17:22:38.471Z [sol] record_receipt_direct sent 4HpPyeQo5yvaDfAg9QqgvF76wVZgbPz4pXxrQJV3tPQmB2zdgEof6NP6tB1PyaTh5YRDZwaJinFGJWcLg9gZrBU1 { receiptPda: '4WkXtMmJL4sZejyHq3SQUEwTSAqE63n89Ki5x5SsX7eM' }
+2025-10-11T17:22:38.472Z [receipt-state] saved { lastEvmBlock: 9390248 }
+2025-10-11T17:22:38.472Z [receipt] done origSeq 19 evmBlock 9390248
+2025-10-11T17:22:43.321Z [sol] record_receipt_direct sent 5nB9s6kA9NRfb9neqAX7EKNEbtxDkan8npfsaqKAzhJiDbn66GLpbmGrKaw97Rsc6WSGo66WtfxCEfXQxL7ANH5E { receiptPda: 'B6LdgVjDEkefkeQApRpNTc1QLMPX4r9ekq2wPxuJ1FMk' }
+2025-10-11T17:22:43.321Z [receipt-state] saved { lastEvmBlock: 9390268 }
+2025-10-11T17:22:43.321Z [receipt] done origSeq 20 evmBlock 9390268
+2025-10-11T17:22:43.324Z [receipt-state] saved { lastEvmBlock: 9390544 }
+2025-10-11T17:22:44.280Z [sol] record_receipt_direct sent 2rYSAnwF918KTRtp2ABW6gvetKo1JdXSmBoWyB56hZGiGZ94nhxoAQigdUMuATfrWcoL7oZZ6ihAXcU9RVWGVxSs { receiptPda: 'B6LdgVjDEkefkeQApRpNTc1QLMPX4r9ekq2wPxuJ1FMk' }
+2025-10-11T17:22:44.280Z [receipt-state] saved { lastEvmBlock: 9390544 }
+2025-10-11T17:22:44.280Z [receipt] done origSeq 20 evmBlock 9390544
+2025-10-11T17:22:47.714Z [sol] record_receipt_direct sent 5mUMjGUrZFCNahqr3T6TwUb17iF8QLFSLmJWGhgysRBfoMSM6QjZL1mhVNqFZyMUXuXcoSo3QeU2W8qP66cp9X9k { receiptPda: 'B6LdgVjDEkefkeQApRpNTc1QLMPX4r9ekq2wPxuJ1FMk' }
+2025-10-11T17:22:47.724Z [receipt-state] saved { lastEvmBlock: 9390544 }
+2025-10-11T17:22:47.724Z [receipt] done origSeq 20 evmBlock 9390544
+2025-10-11T17:22:48.895Z [sol] record_receipt_direct sent 5J9qFJqQLSp7Ki9gCDkTDVRfqRxCmJwuvrS2UiWd9itfCu2B5PTByu26q3ZXiSoueBETYqCkfEouZwMjrhF6Ut1M { receiptPda: 'B6LdgVjDEkefkeQApRpNTc1QLMPX4r9ekq2wPxuJ1FMk' }
+2025-10-11T17:22:48.895Z [receipt-state] saved { lastEvmBlock: 9390544 }
+2025-10-11T17:22:48.895Z [receipt] done origSeq 20 evmBlock 9390544
+2025-10-11T17:22:51.731Z [sol] record_receipt_direct sent 4btCXtucqLVrM97W3zpW2HN1sVtp647KVMXSB7nUF5BwRpnxBLMcU6UWSyHFdk9F5Emm1QuMqb4T1VYVxKdKwiYn { receiptPda: 'B6LdgVjDEkefkeQApRpNTc1QLMPX4r9ekq2wPxuJ1FMk' }
+2025-10-11T17:22:51.731Z [receipt-state] saved { lastEvmBlock: 9390544 }
+2025-10-11T17:22:51.732Z [receipt] done origSeq 20 evmBlock 9390544
+2025-10-11T17:22:53.990Z [sol] record_receipt_direct sent 2VPZpiPhKiTZFaqLNbzMQ3x2zuAhdrFxXtHFfR1NBHbvFfmtQqAjXTUNg7fpKFaUeNgnU5ECY15hkD6jBTHm8V8r { receiptPda: 'B6LdgVjDEkefkeQApRpNTc1QLMPX4r9ekq2wPxuJ1FMk' }
+2025-10-11T17:22:53.991Z [receipt-state] saved { lastEvmBlock: 9390544 }
+2025-10-11T17:22:53.991Z [receipt] done origSeq 20 evmBlock 9390544
+2025-10-11T17:22:57.372Z [sol] record_receipt_direct sent 65K6wxXUyq83WRjVhjEbGkgx11YiybriykgpSaLt6S7mhFizNmwHZVbVAS2qigKPiveUCQBbEyv1p3g4oaGHWUma { receiptPda: '5xaNeXqs8Hn4wstDRjUEBsMN1RzcYRNWVwUnniS7PjNR' }
+2025-10-11T17:22:57.373Z [receipt-state] saved { lastEvmBlock: 9390545 }
+2025-10-11T17:22:57.373Z [receipt] done origSeq 21 evmBlock 9390545
+2025-10-11T17:22:58.434Z [sol] record_receipt_direct sent uJpSPNntE5igBNmoPT2wP4o3JcUNpuG2WNZzBhjAQJTC36fH9CzuCmCgu5xfuCj2ZigHss1F6ykqh2mUaabVWPP { receiptPda: '5xaNeXqs8Hn4wstDRjUEBsMN1RzcYRNWVwUnniS7PjNR' }
+2025-10-11T17:22:58.435Z [receipt-state] saved { lastEvmBlock: 9390545 }
+2025-10-11T17:22:58.435Z [receipt] done origSeq 21 evmBlock 9390545
+2025-10-11T17:22:58.437Z [receipt-state] saved { lastEvmBlock: 9390546 }
+2025-10-11T17:23:00.349Z [receipt] no new InboxEnqueued { fromBlock: 9390546, cur: 9390547 }
+2025-10-11T17:23:01.910Z [sol] record_receipt_direct sent 3T8h2hgdUrm1zL2qiuqGDYWVLU922ckW9Q4bCPB2rPNKuriu5a7Dcd8oRZrNuhue8Vr2yC64LngT8ejAQRpeCwVh { receiptPda: '5xaNeXqs8Hn4wstDRjUEBsMN1RzcYRNWVwUnniS7PjNR' }
+2025-10-11T17:23:01.911Z [receipt-state] saved { lastEvmBlock: 9390546 }
+2025-10-11T17:23:01.911Z [receipt] done origSeq 21 evmBlock 9390546
+2025-10-11T17:23:03.340Z [sol] record_receipt_direct sent 43DyG33PEbMdNoLJh8tNfuMPFFFXaYwvcdiEpw6jLhJhDZ2ekpZQ5yhbr5hujwXsAjVtKL8Ggu2vwDZ8em7G9TDz { receiptPda: '5xaNeXqs8Hn4wstDRjUEBsMN1RzcYRNWVwUnniS7PjNR' }
+2025-10-11T17:23:03.341Z [receipt-state] saved { lastEvmBlock: 9390546 }
+2025-10-11T17:23:03.341Z [receipt] done origSeq 21 evmBlock 9390546
+2025-10-11T17:23:03.343Z [receipt-state] saved { lastEvmBlock: 9390547 }
+2025-10-11T17:23:05.349Z [receipt] no new InboxEnqueued { fromBlock: 9390547, cur: 9390548 }
+2025-10-11T17:23:07.478Z [sol] record_receipt_direct sent E6pzcWTTGj8KQuBwG4jL7QoRJUWFqTdgihK8EgEBu26q2kBJjhjxtiPZUGt7t3dQtpQK9C3A6VZdMU6vFLhCrcd { receiptPda: '5xaNeXqs8Hn4wstDRjUEBsMN1RzcYRNWVwUnniS7PjNR' }
+2025-10-11T17:23:07.479Z [receipt-state] saved { lastEvmBlock: 9390547 }
+2025-10-11T17:23:07.479Z [receipt] done origSeq 21 evmBlock 9390547
+2025-10-11T17:23:08.297Z [sol] record_receipt_direct sent 2LPrzoimEssSMuL7Gc8nJNVJKpSgUhPjyqCgvamGkgCKFkiWufeDYH1tQFJQJwbQdXfa9kA2zLfLYWKyBncvgqWn { receiptPda: '5xaNeXqs8Hn4wstDRjUEBsMN1RzcYRNWVwUnniS7PjNR' }
+2025-10-11T17:23:08.297Z [receipt-state] saved { lastEvmBlock: 9390547 }
+2025-10-11T17:23:08.297Z [receipt] done origSeq 21 evmBlock 9390547
+2025-10-11T17:23:10.352Z [receipt] no new InboxEnqueued { fromBlock: 9390547, cur: 9390548 }
+2025-10-11T17:23:15.358Z [receipt] no new InboxEnqueued { fromBlock: 9390547, cur: 9390549 }
+2025-10-11T17:23:20.409Z [receipt] no new InboxEnqueued { fromBlock: 9390547, cur: 9390549 }
+
+
+dev@x:~/zk-coprocessor-bridge/apps$ npm run relayer
+
+> zk-coprocessor-bridge-apps@0.1.0 relayer
+> tsx src/relayer.ts
+
+2025-10-11T17:21:49.296Z boot chain=1 emitter=0x2e064bffb6d1f2850808539befd750caea4efb64ed96cf144d1f90cb9816adcd portal=0x1E6c87a33e0FB04121D15E5119af68A962EFF76F solRpc=https://api.devnet.solana.com program=A6BL2woTfWSHHYULjqB9craU67WWPPkF8GnoJR8vG8E3 [artifact=/home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts/target/zk_coprocessor_contracts-ZkCoprocessorContracts.json]
+2025-10-11T17:21:50.292Z [sol] rpc ok slot 401847100
+2025-10-11T17:21:50.292Z [state] loaded /home/dev/.zkcb/relayer-state.json { lastProcessed: 20 }
+2025-10-11T17:21:50.292Z [bf] start { limit: 200, expected: 21 }
+2025-10-11T17:21:51.024Z [sol] recent sigs 36
+2025-10-11T17:21:51.605Z [sol] seqs oiDhsXYnjNrqhKyEF1GPvbDWp9qyrqNW8VW5HLByg96YCiR369fjv9EmNRHHQQAwqPaBTh1msjAsrXTjEPSi1EZ []
+2025-10-11T17:21:52.105Z [sol] seqs 3NUZ3DUgpqVctCi4R4Lg8ENqeMSPHn5KG4RhLeXUJt9pRhKSB4g7oaTxJ9ftFrBcmsfwB5JBeb5hir3kaGtkqu2p []
+2025-10-11T17:21:52.751Z [sol] seqs 2t8hVyV5eDrpf8DSvwSmPFHsvcgdQmhj2g77gFALgeiPvF8vijAzJrM4MQFTxWVjmHYaHmXr8GHSyvYPsj3xYFTk []
+2025-10-11T17:21:53.271Z [sol] seqs 3hwhNJdBQZWCNGtfaxS3fhXd9wHnWckc8P4BwCoq78yooWcV4Gs95bdq3MRrpA2yKQNxtWb6vLz1jqQr7Kv7Njpw []
+2025-10-11T17:21:53.776Z [sol] seqs 58BY7egqCB1BAwwRrWQwYxs93pQk1xmq8sSx4N2Z1eMTdUW5YFtUBncTYAvo4Dx4Caim5jmZpCBUfaRGLnahGYo7 []
+2025-10-11T17:21:54.259Z [sol] seqs 4r8jv14HRWCaMGimam8o1fUgqNM5Aw4r64xEpshyx7qAtQh7YXTUJaU72E42p4fiicA6KEdqsKtdAE9ovrbW82gd []
+2025-10-11T17:21:54.807Z [sol] seqs 4XUhomx1vxKGUbe1dF1VBVTaTtaG631AAv61U11n6QRug8MuihgDhD6qaTrLuoTAfarHiHSNRho9rM8s1RWXurcQ []
+2025-10-11T17:21:55.218Z [sol] seqs 4heEpKnRC9vrjnUSZEqnCR8rqquE5YDp2eHifZThaPnefNz3JqsZ3DZjSuUX6XVVK1kfgQ54avim8n9R7cPfFHpK []
+2025-10-11T17:21:55.848Z [sol] seqs 5HpYtjbciZvD5sMuh5GBtwmtbmZeZPXUVMKjXTnbsW1xNJzbXCduA5TjCdsX2fBrBBPusp1eufq2j5hkfzCpENgg []
+2025-10-11T17:21:56.439Z [sol] seqs 3onvKvgjUxfDpN2TpVnJ7uUgw7fvFRpM7ffvDLds47YfMYz4XbcVuFbNqjx8pEHwL9NXYAUeoUfG9bcRHcByxSZi []
+2025-10-11T17:21:57.144Z [sol] seqs 4yEnFgSuC1M7WNMHdSMvMCxbj8NJqDWJvnjiEBKcqREe9se5Avzri76nNnxmw9c5UoTx7f7FR37JCLDmrMgsd9a []
+2025-10-11T17:21:57.587Z [sol] seqs 2WkNAJQpghZNFksmeHngwVKytiFwDUeuDbDXCVtCjso4iQ5vo9hVMQJzMX1ikaD6RyuXWy9SFrLi6NF6CXH3KsAC []
+2025-10-11T17:21:58.084Z [sol] seqs 51R2tv6NcLdbS8C4eMEP24YeF7v41G1ra4sg7kkqz4htQ7PyJLf9Yaoq5ZH84Hrtih5jCSgwzQpFEmvRbifcoNp9 []
+2025-10-11T17:21:58.596Z [sol] seqs 3kk8hujWegMagMZWTjicRUSBvRB6B6UnuU2xoqXjdbYpP5RQPsm6Zv6tFM2yaWzJWpJZwSMWmnznpSA2nqjJW37A []
+2025-10-11T17:21:59.286Z [sol] seqs 5eceV5bBK82MRnXtFwmBeaDBxzVqfVUg9vHSAW5Pg31HkjF3JnDqTJNoMBeeybCMbVF3fnurzNZwF82NwjjHsCgS []
+2025-10-11T17:21:59.825Z [sol] seqs 43WFsnitomJpP9MHs8zhnQACBLwZSEZxKE1MxfN5kui6wienZJFNBdv74CuHZQmQR6hroavHyZY7Y4nFTTiQyXGX []
+2025-10-11T17:22:00.337Z [sol] seqs 59BdXjTJTEzXJ38nnZD4tgYgMQnWQRinttRcWfRpYqiu6UmXYJMhV2KD784vgdEUmiivDn5GYLVPEV9JuexhNPeh [ 7 ]
+2025-10-11T17:22:00.795Z [sol] seqs 5ywzPWMZBzzD1prJTTmTdKsUsAtjQRcNjooj21GaVELbzPQitV5Po82Z1Fzs4cwGNpXGSriZif7RaHr9bFyvm7a2 [ 8 ]
+2025-10-11T17:22:01.169Z [sol] seqs 3exAKuuhxsaqfwPmKn2thyBsK8bqhSbphoEX7u4jEboNHgW9zQeHfA7aDbEiUxwDww9VJdZwHbjkrNoGSzcQskcj [ 9 ]
+2025-10-11T17:22:01.350Z [sol] seqs 5CPGD3j5z6VKY2YyzbSyrsxkQcCJhnMSew6TuaadELBAPvPkakWNGrg2Rk6hJ23813zgxAeYh8dmDS3b1dQSBZcY [ 10 ]
+2025-10-11T17:22:01.535Z [sol] seqs 4aZGNU6hsE1qnHpLcVmzWQBAL2hSZumadsoRmS3ArJLBtGBkmF3yJNkktB3obmCPwokFU3ZnkxemMuqBhB1nSEuq [ 11 ]
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+2025-10-11T17:22:03.198Z [sol] seqs 4Y5vMKXjT49CyMyS4X3i9XeLZtmkH5UL9gv5Es5uRHobbDbDWHuEZH54ULopivLs39VGCwcHRm1BqEKQHb8Due1M [ 12 ]
+2025-10-11T17:22:03.375Z [sol] seqs 4x5GqsJuEWiQpR7UvfJtJu3KWo3M73MU6m2PBhvD7JZdyGL7sDAFgnLVWJF4NXRLqhZfz32p8f3brY814LjAqEMZ [ 13 ]
+2025-10-11T17:22:03.555Z [sol] seqs 4cXWNR3YeDMFprHsa1mKyNuGSHf74H4R7wR1cm7SdhJC7AjMg9rhe6sppqcgAHgTWuaYU1AX1SygQ3MianwGkVzA [ 14 ]
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+2025-10-11T17:22:04.941Z [sol] seqs 2SD237Fq9Ap42kjiVmyLZtBLAfQY1Hs3mMbCeQ2wf18cy5m5PXvcqAUm3Y2GXwgGWxVP3L7LgSRa8jGQFauXT5Ha []
+2025-10-11T17:22:05.123Z [sol] seqs 63hs8wyz9it9v92gHEu5CJL3ifP2R9xzoYatcvmxHUCWtsvKiCL9qgnGwgUwLDemUk1StQE5vrFi6V3StfXU85un []
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+2025-10-11T17:22:06.506Z [sol] seqs 4nLoDbkXvTWomQssDpR7ZiVMTzBgMaTkTayK6EE2GPcBCZ5euWvUVj3z4e4YhNopCBdJ8TiM5aUNhcZfihBsvRiy []
+2025-10-11T17:22:06.681Z [sol] seqs 3YGd7jJ9nNTLfPTyqoYDFeQUqT1u3nxmLCHcLaFadU9GiPSzFeb9mnUMBgDidCMqWrwZyH2C6LH7htZLxHukxGja []
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+2025-10-11T17:22:08.739Z [sol] seqs 4tjUSUkhvar64FJnZDZrCSFmcP9LwWYWptWK1uiLSDbcA5pWfPvW38xiBNVeabK5cyvBzZWZEujVFykrZyoebABW [ 15 ]
+2025-10-11T17:22:09.047Z [sol] seqs 5k73xRXCvos1Yi3dPmWsKYsfAwNtDi4HJTgfTaQNRfC4E1xStrUUPMZh7aJbNGpANoNi5fozdYBmaMDLmjnryKTq [ 16 ]
+2025-10-11T17:22:09.361Z [sol] seqs 3MM8MxjXmttUPQwpqdojf289U27jsjgBPrcoCqoGrJHBXXLXrx2qpJhpbVi5VuhuBjffS5SU1z4Fi6Ta86reCr8a [ 17 ]
+2025-10-11T17:22:09.676Z [sol] seqs ttgSDJxfU3Y1mHNdiVP3TLBohrwrLLuiML24vbiXagdpZPw3XbvX4mWNbEpCweF44fprPGiWvpQJpBhqCuK1rpc [ 18 ]
+2025-10-11T17:22:09.991Z [sol] seqs DmKA4JttxbjSyQAdPFG45snfAhpBbn79uw6EouvbZeaQ3Gpago2ieR9N4B7vxQhsB951v6q2thnyzkjYrCsA8yr [ 19 ]
+2025-10-11T17:22:10.304Z [sol] seqs 3zzGcBPSgY8LgptKk9RVBWDLYsPkwed91Y82KNKGgp9aWcnjB3pASXMPmsd7BqcGfyCNiWKJaYydHNsukgUMgrjo [ 20 ]
+2025-10-11T17:22:10.618Z [sol] seqs 4cEc7DMYp7XtmEzFCL4zBxvjNCpiw6BgnbAWb4cSMAu4xZm9Gb9NSTj3HKfS3ppF6LmpEQTjY8BfNxnXiLymFep3 []
+2025-10-11T17:22:10.987Z [sol] seqs 3eUC1jNhDkPHzHNntn4pc4wGqj4q3My8F9yZAfimvQSx66FQBFDHjSzj8rRQudPaSWVhPjLCNaXxUQGn9B3Saj3z [ 21 ]
+2025-10-11T17:22:10.987Z [bf] enqueue seq 21
+2025-10-11T17:22:10.987Z [bf] done pending 1
+2025-10-11T17:22:12.299Z [drain] fetchVaa try 1 seq 21
+2025-10-11T17:22:12.299Z [vaa] GET https://api.testnet.wormholescan.io/api/v1/signed_vaa/1/2e064bffb6d1f2850808539befd750caea4efb64ed96cf144d1f90cb9816adcd/21
+2025-10-11T17:22:13.594Z [vaa] status 404
+2025-10-11T17:22:13.594Z [vaa] GET https://api.testnet.wormholescan.io/v1/signed_vaa/1/2e064bffb6d1f2850808539befd750caea4efb64ed96cf144d1f90cb9816adcd/21
+2025-10-11T17:22:13.795Z [vaa] status 200
+2025-10-11T17:22:13.795Z [vaa] ok size 145
+2025-10-11T17:22:14.700Z [evm] submit consumeWithSecret(bytes,bytes32) len 145 from 0x7Ae628aD186B8643D77a79687CB6184F6eEAe94D
+2025-10-11T17:22:15.898Z [evm] sent 0x825acd91318aad12132c95732a9d5db1cc714f0271de68fd20c5efc927de06ce
+2025-10-11T17:22:28.876Z [evm] mined undefined
+2025-10-11T17:22:28.877Z [aztec] VaaConsumed {
+  seq: '21',
+  vmHash: '0x07e851b6d82e1a0d1b5996f047a979756a1f50aa9356e8c3a7875b01c2ee4718',
+  aztecL2Key: '0x00e7188313377cb70a6f00daab439b8d8e3afd9d7a6364593c41f4219a980131',
+  ok: true
+}
+2025-10-11T17:22:28.877Z [aztec] payload {
+  len: 22,
+  hex: '0x2d2d7061796c6f61642068656c6c6f20617a74656321',
+  utf8: '--payload hello aztec!'
+}
+2025-10-11T17:22:28.878Z [aztec] InboxEnqueued {
+  seq: '21',
+  vmHash: '0x07e851b6d82e1a0d1b5996f047a979756a1f50aa9356e8c3a7875b01c2ee4718',
+  contentFr: '0x016cb7e8e268768bee58a8f73ff2cbcba304944ad1d44fe7af9544f87e430cd6',
+  key: '0x00e7188313377cb70a6f00daab439b8d8e3afd9d7a6364593c41f4219a980131',
+  leafIndex: '598896',
+  secretHash: '0x24a36eb0e20c3339b911b45cfadcf4748e4f1817d22a61ebf971f78578278fe1'
+}
+2025-10-11T17:22:28.878Z [aztec] spawn aztec-wallet send consume_from_inbox -ca 0x0475f01cd7b204b29541c565e4f7695b3b9a150efb8a0d51e44cafc5d6b62c2f --args 0x016cb7e8e268768bee58a8f73ff2cbcba304944ad1d44fe7af9544f87e430cd6 598896 0x25b7aa05c2db05968453a83d8c59c9ca0bf610f0e6e0cfeb9a38fb5abe215b82 --node-url https://aztec-testnet-fullnode.zkv.xyz --from accounts:my-wallet --payment method=fpc-sponsored,fpc=contracts:sponsoredfpc
+2025-10-11T17:22:28.878Z [aztec] using cwd for artifact resolution: /home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts
+2025-10-11T17:22:30.843Z [aztec-cli] [17:22:30.578] INFO: wallet Using local PXE service
+2025-10-11T17:22:30.843Z [aztec-cli] [17:22:30.579] INFO: kv-store:lmdb-v2 Starting data store with maxReaders 16
+2025-10-11T17:22:36.902Z [aztec-cli] [17:22:36.606] INFO: pxe:data:lmdb Creating pxe_data data store at directory /home/dev/.aztec/wallet/pxe/pxe_data with map size 134217728 KB (LMDB v2)
+[17:22:36.610] INFO: pxe:data:lmdb Starting data store with maxReaders 16
+2025-10-11T17:22:37.416Z [aztec-cli] [17:22:37.292] INFO: pxe:service Started PXE connected to chain 11155111 version 1714840162
+2025-10-11T17:22:37.416Z [aztec-cli] [17:22:37.336] INFO: wallet Using wallet with address 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f
+2025-10-11T17:22:38.461Z [aztec-cli] Using sponsored fee payment with sponsor 0x299f255076aa461e4e94a843f0275303470a6b8ebe7cb44a471c66711151e529
+2025-10-11T17:22:39.471Z [aztec-cli] [17:22:38.469] INFO: pxe:service Simulating transaction execution request to 0x27e740b2 at 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f {"origin":"0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000aa36a7","version":"0x0000000000000000000000000000000000000000000000000000000066366262","authWitnesses":["0x0ceaae825b9c7a676cabddf25ef29bee7ab27c4cb25433c10d68db3fd4f28d84"]}
+2025-10-11T17:22:48.533Z [aztec-cli] [17:22:48.154] ERROR: wallet Error in command execution
+2025-10-11T17:22:48.534Z [aztec-cli] [17:22:48.154] ERROR: wallet Error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+Simulation error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+at self.l1_to_l2_msg_exists(message_hash, leaf_index) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/context/public_context.nr:241:13)
+at context.consume_l1_to_l2_message (/home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts/src/main.nr:35:9)
+at function.name();
+        let call = quote { $name($args) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/macros/dispatch.nr:75:20)
+at ZkCoprocessorContracts.0xaa5a0750
+2025-10-11T17:22:48.893Z [aztec] consume_from_inbox failed aztec-wallet exited 1
+2025-10-11T17:22:58.903Z [aztec] spawn aztec-wallet send consume_from_inbox -ca 0x0475f01cd7b204b29541c565e4f7695b3b9a150efb8a0d51e44cafc5d6b62c2f --args 0x016cb7e8e268768bee58a8f73ff2cbcba304944ad1d44fe7af9544f87e430cd6 598896 0x25b7aa05c2db05968453a83d8c59c9ca0bf610f0e6e0cfeb9a38fb5abe215b82 --node-url https://aztec-testnet-fullnode.zkv.xyz --from accounts:my-wallet --payment method=fpc-sponsored,fpc=contracts:sponsoredfpc
+2025-10-11T17:22:58.904Z [aztec] using cwd for artifact resolution: /home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts
+2025-10-11T17:23:00.388Z [aztec-cli] [17:23:00.345] INFO: wallet Using local PXE service
+2025-10-11T17:23:00.388Z [aztec-cli] [17:23:00.346] INFO: kv-store:lmdb-v2 Starting data store with maxReaders 16
+2025-10-11T17:23:06.443Z [aztec-cli] [17:23:06.299] INFO: pxe:data:lmdb Creating pxe_data data store at directory /home/dev/.aztec/wallet/pxe/pxe_data with map size 134217728 KB (LMDB v2)
+[17:23:06.301] INFO: pxe:data:lmdb Starting data store with maxReaders 16
+2025-10-11T17:23:07.470Z [aztec-cli] [17:23:07.120] INFO: pxe:service Started PXE connected to chain 11155111 version 1714840162
+[17:23:07.161] INFO: wallet Using wallet with address 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f
+2025-10-11T17:23:08.969Z [aztec-cli] Using sponsored fee payment with sponsor 0x299f255076aa461e4e94a843f0275303470a6b8ebe7cb44a471c66711151e529
+2025-10-11T17:23:09.523Z [aztec-cli] [17:23:08.977] INFO: pxe:service Simulating transaction execution request to 0x27e740b2 at 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f {"origin":"0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000aa36a7","version":"0x0000000000000000000000000000000000000000000000000000000066366262","authWitnesses":["0x0a24c0b9a7b69d9ab6940d57f0b0e240ab98be86339997806b55b954e4437598"]}
+2025-10-11T17:23:18.581Z [aztec-cli] [17:23:17.653] ERROR: wallet Error in command execution
+2025-10-11T17:23:18.581Z [aztec-cli] [17:23:17.653] ERROR: wallet Error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+Simulation error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+at self.l1_to_l2_msg_exists(message_hash, leaf_index) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/context/public_context.nr:241:13)
+at context.consume_l1_to_l2_message (/home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts/src/main.nr:35:9)
+at function.name();
+        let call = quote { $name($args) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/macros/dispatch.nr:75:20)
+at ZkCoprocessorContracts.0xaa5a0750
+2025-10-11T17:23:19.578Z [aztec] consume_from_inbox failed aztec-wallet exited 1
+2025-10-11T17:23:29.588Z [aztec] spawn aztec-wallet send consume_from_inbox -ca 0x0475f01cd7b204b29541c565e4f7695b3b9a150efb8a0d51e44cafc5d6b62c2f --args 0x016cb7e8e268768bee58a8f73ff2cbcba304944ad1d44fe7af9544f87e430cd6 598896 0x25b7aa05c2db05968453a83d8c59c9ca0bf610f0e6e0cfeb9a38fb5abe215b82 --node-url https://aztec-testnet-fullnode.zkv.xyz --from accounts:my-wallet --payment method=fpc-sponsored,fpc=contracts:sponsoredfpc
+2025-10-11T17:23:29.588Z [aztec] using cwd for artifact resolution: /home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts
+2025-10-11T17:23:31.021Z [aztec-cli] [17:23:30.977] INFO: wallet Using local PXE service
+2025-10-11T17:23:31.022Z [aztec-cli] [17:23:30.978] INFO: kv-store:lmdb-v2 Starting data store with maxReaders 16
+2025-10-11T17:23:38.078Z [aztec-cli] [17:23:37.720] INFO: pxe:data:lmdb Creating pxe_data data store at directory /home/dev/.aztec/wallet/pxe/pxe_data with map size 134217728 KB (LMDB v2)
+2025-10-11T17:23:38.078Z [aztec-cli] [17:23:37.722] INFO: pxe:data:lmdb Starting data store with maxReaders 16
+2025-10-11T17:23:38.591Z [aztec-cli] [17:23:38.530] INFO: pxe:service Started PXE connected to chain 11155111 version 1714840162
+2025-10-11T17:23:38.591Z [aztec-cli] [17:23:38.570] INFO: wallet Using wallet with address 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f
+2025-10-11T17:23:39.664Z [aztec-cli] Using sponsored fee payment with sponsor 0x299f255076aa461e4e94a843f0275303470a6b8ebe7cb44a471c66711151e529
+2025-10-11T17:23:40.641Z [aztec-cli] [17:23:39.670] INFO: pxe:service Simulating transaction execution request to 0x27e740b2 at 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f {"origin":"0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000aa36a7","version":"0x0000000000000000000000000000000000000000000000000000000066366262","authWitnesses":["0x289f2c1c24642ccfd7745da1a35c0dabff917f25c8065dc1d59aeecf2026e19b"]}
+2025-10-11T17:23:48.701Z [aztec-cli] [17:23:47.802] ERROR: wallet Error in command execution
+2025-10-11T17:23:48.701Z [aztec-cli] [17:23:47.803] ERROR: wallet Error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+Simulation error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+at self.l1_to_l2_msg_exists(message_hash, leaf_index) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/context/public_context.nr:241:13)
+at context.consume_l1_to_l2_message (/home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts/src/main.nr:35:9)
+at function.name();
+        let call = quote { $name($args) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/macros/dispatch.nr:75:20)
+at ZkCoprocessorContracts.0xaa5a0750
+2025-10-11T17:23:49.007Z [aztec] consume_from_inbox failed aztec-wallet exited 1
+2025-10-11T17:23:59.018Z [aztec] spawn aztec-wallet send consume_from_inbox -ca 0x0475f01cd7b204b29541c565e4f7695b3b9a150efb8a0d51e44cafc5d6b62c2f --args 0x016cb7e8e268768bee58a8f73ff2cbcba304944ad1d44fe7af9544f87e430cd6 598896 0x25b7aa05c2db05968453a83d8c59c9ca0bf610f0e6e0cfeb9a38fb5abe215b82 --node-url https://aztec-testnet-fullnode.zkv.xyz --from accounts:my-wallet --payment method=fpc-sponsored,fpc=contracts:sponsoredfpc
+2025-10-11T17:23:59.018Z [aztec] using cwd for artifact resolution: /home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts
+2025-10-11T17:24:00.434Z [aztec-cli] [17:24:00.393] INFO: wallet Using local PXE service
+2025-10-11T17:24:00.434Z [aztec-cli] [17:24:00.394] INFO: kv-store:lmdb-v2 Starting data store with maxReaders 16
+2025-10-11T17:24:06.493Z [aztec-cli] [17:24:06.366] INFO: pxe:data:lmdb Creating pxe_data data store at directory /home/dev/.aztec/wallet/pxe/pxe_data with map size 134217728 KB (LMDB v2)
+2025-10-11T17:24:06.493Z [aztec-cli] [17:24:06.368] INFO: pxe:data:lmdb Starting data store with maxReaders 16
+2025-10-11T17:24:07.520Z [aztec-cli] [17:24:07.211] INFO: pxe:service Started PXE connected to chain 11155111 version 1714840162
+2025-10-11T17:24:07.521Z [aztec-cli] [17:24:07.253] INFO: wallet Using wallet with address 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f
+2025-10-11T17:24:10.999Z [aztec-cli] Using sponsored fee payment with sponsor 0x299f255076aa461e4e94a843f0275303470a6b8ebe7cb44a471c66711151e529
+2025-10-11T17:24:11.578Z [aztec-cli] [17:24:11.005] INFO: pxe:service Simulating transaction execution request to 0x27e740b2 at 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f {"origin":"0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000aa36a7","version":"0x0000000000000000000000000000000000000000000000000000000066366262","authWitnesses":["0x0d3c5ec64aaf2ac27f3b12973f94ad3ee474c7c5b58962df8b9d84cce97caff7"]}
+2025-10-11T17:24:19.638Z [aztec-cli] [17:24:19.104] ERROR: wallet Error in command execution
+2025-10-11T17:24:19.638Z [aztec-cli] [17:24:19.104] ERROR: wallet Error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+Simulation error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+at self.l1_to_l2_msg_exists(message_hash, leaf_index) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/context/public_context.nr:241:13)
+at context.consume_l1_to_l2_message (/home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts/src/main.nr:35:9)
+at function.name();
+        let call = quote { $name($args) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/macros/dispatch.nr:75:20)
+at ZkCoprocessorContracts.0xaa5a0750
+2025-10-11T17:24:20.653Z [aztec] consume_from_inbox failed aztec-wallet exited 1
+2025-10-11T17:24:30.663Z [aztec] spawn aztec-wallet send consume_from_inbox -ca 0x0475f01cd7b204b29541c565e4f7695b3b9a150efb8a0d51e44cafc5d6b62c2f --args 0x016cb7e8e268768bee58a8f73ff2cbcba304944ad1d44fe7af9544f87e430cd6 598896 0x25b7aa05c2db05968453a83d8c59c9ca0bf610f0e6e0cfeb9a38fb5abe215b82 --node-url https://aztec-testnet-fullnode.zkv.xyz --from accounts:my-wallet --payment method=fpc-sponsored,fpc=contracts:sponsoredfpc
+2025-10-11T17:24:30.663Z [aztec] using cwd for artifact resolution: /home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts
+2025-10-11T17:24:32.130Z [aztec-cli] [17:24:32.089] INFO: wallet Using local PXE service
+2025-10-11T17:24:32.131Z [aztec-cli] [17:24:32.090] INFO: kv-store:lmdb-v2 Starting data store with maxReaders 16
+2025-10-11T17:24:38.186Z [aztec-cli] [17:24:38.057] INFO: pxe:data:lmdb Creating pxe_data data store at directory /home/dev/.aztec/wallet/pxe/pxe_data with map size 134217728 KB (LMDB v2)
+[17:24:38.058] INFO: pxe:data:lmdb Starting data store with maxReaders 16
+2025-10-11T17:24:39.212Z [aztec-cli] [17:24:38.740] INFO: pxe:service Started PXE connected to chain 11155111 version 1714840162
+2025-10-11T17:24:39.213Z [aztec-cli] [17:24:38.781] INFO: wallet Using wallet with address 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f
+2025-10-11T17:24:39.966Z [aztec-cli] Using sponsored fee payment with sponsor 0x299f255076aa461e4e94a843f0275303470a6b8ebe7cb44a471c66711151e529
+2025-10-11T17:24:40.240Z [aztec-cli] [17:24:39.971] INFO: pxe:service Simulating transaction execution request to 0x27e740b2 at 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f {"origin":"0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000aa36a7","version":"0x0000000000000000000000000000000000000000000000000000000066366262","authWitnesses":["0x0f6c213f0e0f96189e8b1f662d87990ed70d9c487404f6e887a6b0fcb3310bcf"]}
+2025-10-11T17:24:52.301Z [aztec-cli] [17:24:51.581] ERROR: wallet Error in command execution
+2025-10-11T17:24:52.302Z [aztec-cli] [17:24:51.581] ERROR: wallet Error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+Simulation error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+at self.l1_to_l2_msg_exists(message_hash, leaf_index) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/context/public_context.nr:241:13)
+at context.consume_l1_to_l2_message (/home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts/src/main.nr:35:9)
+at function.name();
+        let call = quote { $name($args) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/macros/dispatch.nr:75:20)
+at ZkCoprocessorContracts.0xaa5a0750
+2025-10-11T17:24:53.341Z [aztec] consume_from_inbox failed aztec-wallet exited 1
+2025-10-11T17:25:03.352Z [aztec] spawn aztec-wallet send consume_from_inbox -ca 0x0475f01cd7b204b29541c565e4f7695b3b9a150efb8a0d51e44cafc5d6b62c2f --args 0x016cb7e8e268768bee58a8f73ff2cbcba304944ad1d44fe7af9544f87e430cd6 598896 0x25b7aa05c2db05968453a83d8c59c9ca0bf610f0e6e0cfeb9a38fb5abe215b82 --node-url https://aztec-testnet-fullnode.zkv.xyz --from accounts:my-wallet --payment method=fpc-sponsored,fpc=contracts:sponsoredfpc
+2025-10-11T17:25:03.352Z [aztec] using cwd for artifact resolution: /home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts
+2025-10-11T17:25:04.804Z [aztec-cli] [17:25:04.766] INFO: wallet Using local PXE service
+2025-10-11T17:25:04.804Z [aztec-cli] [17:25:04.767] INFO: kv-store:lmdb-v2 Starting data store with maxReaders 16
+2025-10-11T17:25:10.858Z [aztec-cli] [17:25:10.737] INFO: pxe:data:lmdb Creating pxe_data data store at directory /home/dev/.aztec/wallet/pxe/pxe_data with map size 134217728 KB (LMDB v2)
+2025-10-11T17:25:10.858Z [aztec-cli] [17:25:10.739] INFO: pxe:data:lmdb Starting data store with maxReaders 16
+2025-10-11T17:25:11.885Z [aztec-cli] [17:25:11.440] INFO: pxe:service Started PXE connected to chain 11155111 version 1714840162
+2025-10-11T17:25:11.886Z [aztec-cli] [17:25:11.481] INFO: wallet Using wallet with address 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f
+2025-10-11T17:25:12.849Z [aztec-cli] Using sponsored fee payment with sponsor 0x299f255076aa461e4e94a843f0275303470a6b8ebe7cb44a471c66711151e529
+2025-10-11T17:25:12.911Z [aztec-cli] [17:25:12.856] INFO: pxe:service Simulating transaction execution request to 0x27e740b2 at 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f {"origin":"0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000aa36a7","version":"0x0000000000000000000000000000000000000000000000000000000066366262","authWitnesses":["0x1110ec71d9e17e87838b0d5f6682fe1737444cc208bb47cab9c326823dec5e22"]}
+2025-10-11T17:25:23.971Z [aztec-cli] [17:25:23.467] ERROR: wallet Error in command execution
+2025-10-11T17:25:23.972Z [aztec-cli] [17:25:23.467] ERROR: wallet Error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+Simulation error: Assertion failed: Tried to consume nonexistent L1-to-L2 message 'self.l1_to_l2_msg_exists(message_hash, leaf_index)'
+Context:
+TxExecutionRequest(0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f called 0x27e740b2)
+simulatePublic=true
+skipTxValidation=false
+scopes=undefined
+at self.l1_to_l2_msg_exists(message_hash, leaf_index) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/context/public_context.nr:241:13)
+at context.consume_l1_to_l2_message (/home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts/src/main.nr:35:9)
+at function.name();
+        let call = quote { $name($args) (/home/dev/nargo/github.com/AztecProtocol/aztec-packages/v2.0.2/noir-projects/aztec-nr/aztec/src/macros/dispatch.nr:75:20)
+at ZkCoprocessorContracts.0xaa5a0750
+2025-10-11T17:25:25.038Z [aztec] consume_from_inbox failed aztec-wallet exited 1
+2025-10-11T17:25:35.048Z [aztec] spawn aztec-wallet send consume_from_inbox -ca 0x0475f01cd7b204b29541c565e4f7695b3b9a150efb8a0d51e44cafc5d6b62c2f --args 0x016cb7e8e268768bee58a8f73ff2cbcba304944ad1d44fe7af9544f87e430cd6 598896 0x25b7aa05c2db05968453a83d8c59c9ca0bf610f0e6e0cfeb9a38fb5abe215b82 --node-url https://aztec-testnet-fullnode.zkv.xyz --from accounts:my-wallet --payment method=fpc-sponsored,fpc=contracts:sponsoredfpc
+2025-10-11T17:25:35.048Z [aztec] using cwd for artifact resolution: /home/dev/zk-coprocessor-bridge-dev/aztec-contracts/contracts/zk-coprocessor-contracts
+2025-10-11T17:25:36.525Z [aztec-cli] [17:25:36.488] INFO: wallet Using local PXE service
+2025-10-11T17:25:36.526Z [aztec-cli] [17:25:36.490] INFO: kv-store:lmdb-v2 Starting data store with maxReaders 16
+2025-10-11T17:25:42.580Z [aztec-cli] [17:25:42.439] INFO: pxe:data:lmdb Creating pxe_data data store at directory /home/dev/.aztec/wallet/pxe/pxe_data with map size 134217728 KB (LMDB v2)
+2025-10-11T17:25:42.581Z [aztec-cli] [17:25:42.450] INFO: pxe:data:lmdb Starting data store with maxReaders 16
+2025-10-11T17:25:43.606Z [aztec-cli] [17:25:43.137] INFO: pxe:service Started PXE connected to chain 11155111 version 1714840162
+2025-10-11T17:25:43.607Z [aztec-cli] [17:25:43.180] INFO: wallet Using wallet with address 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f
+2025-10-11T17:25:44.496Z [aztec-cli] Using sponsored fee payment with sponsor 0x299f255076aa461e4e94a843f0275303470a6b8ebe7cb44a471c66711151e529
+2025-10-11T17:25:44.634Z [aztec-cli] [17:25:44.502] INFO: pxe:service Simulating transaction execution request to 0x27e740b2 at 0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f {"origin":"0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000aa36a7","version":"0x0000000000000000000000000000000000000000000000000000000066366262","authWitnesses":["0x1608c4a4da90a2561eeb43de8d8f20ef27b7c9d7e1c5b6c27b507f00aef92a9b"]}
+2025-10-11T17:25:56.143Z [aztec-cli] Estimated gas usage:    da=6759,l2=402500,teardownDA=0,teardownL2=0
+Maximum total tx fee:   410550000
+2025-10-11T17:25:56.693Z [aztec-cli] [17:25:56.138] INFO: pxe:service Simulation completed for 0x2940c782d5fe6b6c5576ac322fc850e178fefdc12fe53d5bad625439ab63aa3f in 11635.660884ms {"txHash":"0x2940c782d5fe6b6c5576ac322fc850e178fefdc12fe53d5bad625439ab63aa3f","origin":"0x1c097a8e5e0294c2555cc69126344f881d384038001e617202f3bdb1508bf14f","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000aa36a7","version":"0x0000000000000000000000000000000000000000000000000000000066366262","authWitnesses":["0x1608c4a4da90a2561eeb43de8d8f20ef27b7c9d7e1c5b6c27b507f00aef92a9b"],"gasUsed":{"totalGas":{"daGas":6144,"l2Gas":365909},"teardownGas":{"daGas":0,"l2Gas":0},"publicGas":{"daGas":4608,"l2Gas":342377},"billedGas":{"daGas":6144,"l2Gas":365909}},"revertCode":0}
+2025-10-11T17:26:03.750Z [aztec-cli] [17:26:03.624] INFO: pxe:private-kernel-execution-prover Private kernel witness generation took 3383.824607999999ms
+2025-10-11T17:26:03.750Z [aztec-cli] [17:26:03.624] INFO: pxe:bb:native Generating Client IVC proof
+2025-10-11T17:26:04.007Z [aztec-cli] [17:26:03.896] INFO: pxe:bb:native inputsPath /home/dev/.aztec/wallet/bb/tmp-Ig1W6d/ivc-inputs.msgpack
+2025-10-11T17:26:04.008Z [aztec-cli] [17:26:03.897] INFO: pxe:bb:native bb - BB concurrency: undefined
+[17:26:03.897] INFO: pxe:bb:native bb - Executing BB with: /usr/src/barretenberg/cpp/build/bin/bb prove -o /home/dev/.aztec/wallet/bb/tmp-Ig1W6d --ivc_inputs_path /home/dev/.aztec/wallet/bb/tmp-Ig1W6d/ivc-inputs.msgpack -v --scheme client_ivc
+2025-10-11T17:26:04.008Z [aztec-cli] [17:26:03.919] INFO: pxe:bb:native bb - bb command: prove (mem: 153.51 MiB)
+2025-10-11T17:26:04.008Z [aztec-cli] [17:26:03.920] INFO: pxe:bb:native bb - Scheme is: client_ivc, num threads: 16 (mem: 153.51 MiB)
+  --scheme: client_ivc (mem: 153.51 MiB)
+  --output_path: /home/dev/.aztec/wallet/bb/tmp-Ig1W6d (mem: 153.51 MiB)
+  --ivc_inputs_path: /home/dev/.aztec/wallet/bb/tmp-Ig1W6d/ivc-inputs.msgpack (mem: 153.51 MiB)
+  --verbose: true (mem: 153.51 MiB)
+2025-10-11T17:26:04.008Z [aztec-cli] [17:26:03.951] INFO: pxe:bb:native bb - BN254 commitment key size: 262144 (mem: 153.51 MiB)
+2025-10-11T17:26:04.008Z [aztec-cli] [17:26:03.951] INFO: pxe:bb:native bb - using cached bn254 crs with num points 524289 at "/home/dev/.bb-crs/bn254_g1.dat" (mem: 153.51 MiB)
+2025-10-11T17:26:04.008Z [aztec-cli] [17:26:04.007] INFO: pxe:bb:native bb - Initialized BN254 CRS from memory with num points = 262145 (mem: 153.51 MiB)
+2025-10-11T17:26:04.008Z [aztec-cli] [17:26:04.008] INFO: pxe:bb:native bb - ClientIVC: starting with 7 circuits (mem: 153.51 MiB)
+2025-10-11T17:26:04.024Z [aztec-cli] [17:26:04.017] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'SchnorrAccount:entrypoint' (mem: 153.51 MiB)
+ClientIVC: accumulating SchnorrAccount:entrypoint (mem: 153.51 MiB)
+2025-10-11T17:26:04.091Z [aztec-cli] [17:26:04.068] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'SchnorrAccount:entrypoint' (mem: 153.51 MiB)
+Constructing DeciderProvingKey (mem: 153.51 MiB)
+[17:26:04.078] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 153.51 MiB)
+goblin ecc op : 4/1000 (mem: 153.51 MiB)
+busread       : 751/3000 (mem: 153.51 MiB)
+lookups       : 2076/13000 (mem: 153.51 MiB)
+pub inputs    : 16/2000 (populated in decider pk constructor) (mem: 153.51 MiB)
+arithmetic    : 8821/59000 (mem: 153.51 MiB)
+delta range   : 2635/18000 (mem: 153.51 MiB)
+elliptic      : 794/6500 (mem: 153.51 MiB)
+memory        : 4504/25000
+2025-10-11T17:26:04.091Z [aztec-cli] [17:26:04.078] INFO: pxe:bb:native bb -  (mem: 153.51 MiB)
+nnf           : 2/19000 (mem: 153.51 MiB)
+poseidon ext  : 312/17000 (mem: 153.51 MiB)
+poseidon int  : 1769/96500 (mem: 153.51 MiB)
+overflow      : 0/0 (mem: 153.51 MiB)
+ (mem: 153.51 MiB)
+Total structured size: 260001 (mem: 153.51 MiB)
+allocating polynomials object in proving key... (mem: 153.51 MiB)
+2025-10-11T17:26:04.132Z [aztec-cli] [17:26:04.119] INFO: pxe:bb:native bb - populating trace... (mem: 322.71 MiB)
+2025-10-11T17:26:04.196Z [aztec-cli] [17:26:04.165] INFO: pxe:bb:native bb - time to construct proving key: 96 ms. (mem: 339.58 MiB)
+Accumulating first app circuit with OINK (mem: 339.58 MiB)
+computing oink proof... (mem: 339.58 MiB)
+[17:26:04.166] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x21893f5c2e4936ee95b46695ac9ddbd25d09f21aadfc54b36149a5ae297340f2 (mem: 339.58 MiB)
+2025-10-11T17:26:04.456Z [aztec-cli] [17:26:04.345] INFO: pxe:bb:native bb - oink proof constructed (mem: 353.01 MiB)
+[17:26:04.346] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x21893f5c2e4936ee95b46695ac9ddbd25d09f21aadfc54b36149a5ae297340f2 (mem: 353.01 MiB)
+[17:26:04.365] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_init' (mem: 354.88 MiB)
+ClientIVC: accumulating private_kernel_init (mem: 354.88 MiB)
+[17:26:04.403] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x21893f5c2e4936ee95b46695ac9ddbd25d09f21aadfc54b36149a5ae297340f2 (mem: 355.26 MiB)
+expected vk hash: 0x21893f5c2e4936ee95b46695ac9ddbd25d09f21aadfc54b36149a5ae297340f2 (mem: 355.26 MiB)
+[17:26:04.427] INFO: pxe:bb:native bb - kernel output pg hash: 0x27d012c4c7c2e26f719f6a7f18e1df03ba409ec28ebd87d01844804745294ca4 (mem: 356.02 MiB)
+[17:26:04.427] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_init' (mem: 356.02 MiB)
+Constructing DeciderProvingKey (mem: 356.02 MiB)
+[17:26:04.433] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 356.02 MiB)
+goblin ecc op : 64/1000 (mem: 356.02 MiB)
+busread       : 2243/3000 (mem: 356.02 MiB)
+lookups       : 2/13000 (mem: 356.02 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 356.02 MiB)
+arithmetic    : 14420/59000 (mem: 356.02 MiB)
+delta range   : 3100/18000 (mem: 356.02 MiB)
+2025-10-11T17:26:04.457Z [aztec-cli] [17:26:04.434] INFO: pxe:bb:native bb - elliptic      :    340/6500 (mem: 356.02 MiB)
+memory        : 1013/25000 (mem: 356.02 MiB)
+nnf           : 98/19000 (mem: 356.02 MiB)
+poseidon ext  : 2972/17000 (mem: 356.02 MiB)
+poseidon int  : 16931/96500 (mem: 356.02 MiB)
+overflow      : 0/0 (mem: 356.02 MiB)
+ (mem: 356.02 MiB)
+Total structured size: 260001 (mem: 356.02 MiB)
+allocating polynomials object in proving key... (mem: 356.02 MiB)
+2025-10-11T17:26:04.489Z [aztec-cli] [17:26:04.472] INFO: pxe:bb:native bb - populating trace... (mem: 565.90 MiB)
+2025-10-11T17:26:04.501Z [aztec-cli] [17:26:04.492] INFO: pxe:bb:native bb - time to construct proving key: 64 ms. (mem: 584.27 MiB)
+computing pg proof... (mem: 584.27 MiB)
+[17:26:04.493] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x27d012c4c7c2e26f719f6a7f18e1df03ba409ec28ebd87d01844804745294ca4 (mem: 584.27 MiB)
+[17:26:04.494] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 584.27 MiB)
+2025-10-11T17:26:04.759Z [aztec-cli] [17:26:04.734] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 588.65 MiB)
+[17:26:04.734] INFO: pxe:bb:native bb - perturbator round (mem: 588.65 MiB)
+2025-10-11T17:26:04.832Z [aztec-cli] [17:26:04.809] INFO: pxe:bb:native bb - combiner quotient round (mem: 588.95 MiB)
+2025-10-11T17:26:04.899Z [aztec-cli] [17:26:04.897] INFO: pxe:bb:native bb - folded (mem: 588.95 MiB)
+pg proof constructed (mem: 588.95 MiB)
+2025-10-11T17:26:04.899Z [aztec-cli] [17:26:04.898] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x27d012c4c7c2e26f719f6a7f18e1df03ba409ec28ebd87d01844804745294ca4 (mem: 588.95 MiB)
+[17:26:04.899] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 588.95 MiB)
+2025-10-11T17:26:04.965Z [aztec-cli] [17:26:04.935] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'SponsoredFPC:sponsor_unconditionally' (mem: 588.95 MiB)
+ClientIVC: accumulating SponsoredFPC:sponsor_unconditionally (mem: 588.95 MiB)
+[17:26:04.941] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'SponsoredFPC:sponsor_unconditionally' (mem: 588.95 MiB)
+Constructing DeciderProvingKey (mem: 588.95 MiB)
+[17:26:04.943] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 588.95 MiB)
+goblin ecc op : 4/1000 (mem: 588.95 MiB)
+busread       : 751/3000 (mem: 588.95 MiB)
+[17:26:04.944] INFO: pxe:bb:native bb - lookups       : 2/13000 (mem: 588.95 MiB)
+pub inputs    : 16/2000 (populated in decider pk constructor) (mem: 588.95 MiB)
+arithmetic    : 2957/59000 (mem: 588.95 MiB)
+delta range   : 1425/18000 (mem: 588.95 MiB)
+elliptic      : 2/6500 (mem: 588.95 MiB)
+memory        : 2/25000 (mem: 588.95 MiB)
+nnf           : 2/19000 (mem: 588.95 MiB)
+poseidon ext  : 2/17000 (mem: 588.95 MiB)
+poseidon int  : 2/96500 (mem: 588.95 MiB)
+overflow      : 0/0 (mem: 588.95 MiB)
+ (mem: 588.95 MiB)
+Total structured size: 260001 (mem: 588.95 MiB)
+allocating polynomials object in proving key... (mem: 588.95 MiB)
+2025-10-11T17:26:04.982Z [aztec-cli] [17:26:04.981] INFO: pxe:bb:native bb - populating trace... (mem: 588.95 MiB)
+2025-10-11T17:26:04.994Z [aztec-cli] [17:26:04.986] INFO: pxe:bb:native bb - time to construct proving key: 45 ms. (mem: 588.95 MiB)
+computing pg proof... (mem: 
+2025-10-11T17:26:04.994Z [aztec-cli] [17:26:04.987] INFO: pxe:bb:native bb - 588.95 MiB)
+[17:26:04.987] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x107dab4d606d7f644c1eccdcd854a7ab7c341a401ce8b1bf3ce9ca7731ea592c (mem: 588.95 MiB)
+2025-10-11T17:26:05.123Z [aztec-cli] [17:26:05.080] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 588.95 MiB)
+2025-10-11T17:26:05.188Z [aztec-cli] [17:26:05.170] INFO: pxe:bb:native bb - perturbator round (mem: 597.88 MiB)
+2025-10-11T17:26:05.256Z [aztec-cli] [17:26:05.241] INFO: pxe:bb:native bb - combiner quotient round (mem: 597.88 MiB)
+2025-10-11T17:26:05.386Z [aztec-cli] [17:26:05.327] INFO: pxe:bb:native bb - folded (mem: 597.88 MiB)
+pg proof constructed (mem: 597.88 MiB)
+[17:26:05.328] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x107dab4d606d7f644c1eccdcd854a7ab7c341a401ce8b1bf3ce9ca7731ea592c (mem: 597.88 MiB)
+2025-10-11T17:26:05.386Z [aztec-cli] [17:26:05.360] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_inner' (mem: 597.88 MiB)
+ClientIVC: accumulating private_kernel_inner (mem: 597.88 MiB)
+2025-10-11T17:26:05.450Z [aztec-cli] [17:26:05.424] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x27d012c4c7c2e26f719f6a7f18e1df03ba409ec28ebd87d01844804745294ca4 (mem: 597.88 MiB)
+[17:26:05.429] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 597.88 MiB)
+expected vk hash: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 597.88 MiB)
+2025-10-11T17:26:05.482Z [aztec-cli] [17:26:05.468] INFO: pxe:bb:native bb - PG accum hash from IO: 0x27d012c4c7c2e26f719f6a7f18e1df03ba409ec28ebd87d01844804745294ca4 (mem: 597.88 MiB)
+[17:26:05.477] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x107dab4d606d7f644c1eccdcd854a7ab7c341a401ce8b1bf3ce9ca7731ea592c (mem: 597.88 MiB)
+expected vk hash: 0x107dab4d606d7f644c1eccdcd854a7ab7c341a401ce8b1bf3ce9ca7731ea592c (mem: 597.88 MiB)
+2025-10-11T17:26:05.546Z [aztec-cli] [17:26:05.542] INFO: pxe:bb:native bb - kernel output pg hash: 0x2910bc9fd4a5e3f607a90fc283a075c5315934280ea083876a1a8e7a70f24be4 (mem: 597.88 MiB)
+[17:26:05.542] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_inner' (mem: 597.88 MiB)
+Constructing DeciderProvingKey (mem: 597.88 MiB)
+2025-10-11T17:26:05.565Z [aztec-cli] [17:26:05.557] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 597.88 MiB)
+goblin ecc op : 818/1000 (mem: 597.88 MiB)
+busread       : 2315/3000 (mem: 597.88 MiB)
+lookups       : 2/13000 (mem: 597.88 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 597.88 MiB)
+arithmetic    : 29442/59000 (mem: 597.88 MiB)
+delta range   : 4420/18000 (mem: 597.88 MiB)
+elliptic      : 340/6500 (mem: 597.88 MiB)
+[17:26:05.558] INFO: pxe:bb:native bb - memory        : 6392/25000 (mem: 597.88 MiB)
+nnf           : 98/19000 (mem: 597.88 MiB)
+poseidon ext  : 7752/17000 (mem: 597.88 MiB)
+poseidon int  : 44177/96500 (mem: 597.88 MiB)
+overflow      : 0/0 (mem: 597.88 MiB)
+ (mem: 597.88 MiB)
+Total structured size: 260001 (mem: 597.88 MiB)
+allocating polynomials object in proving key... (mem: 597.88 MiB)
+2025-10-11T17:26:05.600Z [aztec-cli] [17:26:05.592] INFO: pxe:bb:native bb - populating trace... (mem: 607.12 MiB)
+2025-10-11T17:26:05.664Z [aztec-cli] [17:26:05.635] INFO: pxe:bb:native bb - time to construct proving key: 92 ms. (mem: 633.25 MiB)
+computing pg proof... (mem: 633.25 MiB)
+[17:26:05.636] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x2910bc9fd4a5e3f607a90fc283a075c5315934280ea083876a1a8e7a70f24be4 (mem: 633.25 MiB)
+[17:26:05.636] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 633.25 MiB)
+2025-10-11T17:26:06.181Z [aztec-cli] [17:26:06.080] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 634.88 MiB)
+[17:26:06.152] INFO: pxe:bb:native bb - perturbator round (mem: 659.00 MiB)
+2025-10-11T17:26:06.314Z [aztec-cli] [17:26:06.249] INFO: pxe:bb:native bb - combiner quotient round (mem: 659.00 MiB)
+2025-10-11T17:26:06.348Z [aztec-cli] [17:26:06.336] INFO: pxe:bb:native bb - folded (mem: 659.00 MiB)
+pg proof constructed (mem: 659.00 MiB)
+2025-10-11T17:26:06.349Z [aztec-cli] [17:26:06.337] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x2910bc9fd4a5e3f607a90fc283a075c5315934280ea083876a1a8e7a70f24be4 (mem: 659.00 MiB)
+[17:26:06.338] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 659.00 MiB)
+2025-10-11T17:26:06.413Z [aztec-cli] [17:26:06.398] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_reset' (mem: 659.00 MiB)
+ClientIVC: accumulating private_kernel_reset (mem: 659.00 MiB)
+2025-10-11T17:26:06.541Z [aztec-cli] [17:26:06.519] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x2910bc9fd4a5e3f607a90fc283a075c5315934280ea083876a1a8e7a70f24be4 (mem: 659.25 MiB)
+[17:26:06.523] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 659.25 MiB)
+expected vk hash: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 659.25 MiB)
+2025-10-11T17:26:06.573Z [aztec-cli] [17:26:06.563] INFO: pxe:bb:native bb - PG accum hash from IO: 0x2910bc9fd4a5e3f607a90fc283a075c5315934280ea083876a1a8e7a70f24be4 (mem: 659.25 MiB)
+2025-10-11T17:26:06.589Z [aztec-cli] [17:26:06.581] INFO: pxe:bb:native bb - kernel output pg hash: 0x0cd0f94dd0478462e9d7da88e6658a55305a91671e55fffdc568d93327201419 (mem: 659.25 MiB)
+2025-10-11T17:26:06.589Z [aztec-cli] [17:26:06.582] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_reset' (mem: 659.25 MiB)
+Constructing DeciderProvingKey (mem: 659.25 MiB)
+2025-10-11T17:26:06.608Z [aztec-cli] [17:26:06.602] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 659.25 MiB)
+goblin ecc op : 406/1000 (mem: 659.25 MiB)
+busread       : 2388/3000 (mem: 659.25 MiB)
+lookups       : 2/13000 (mem: 659.25 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 
+[17:26:06.603] INFO: pxe:bb:native bb - 659.25 MiB)
+arithmetic    : 33913/59000 (mem: 659.25 MiB)
+delta range   : 4067/18000 (mem: 659.25 MiB)
+elliptic      : 1274/6500 (mem: 659.25 MiB)
+memory        : 12375/25000 (mem: 659.25 MiB)
+nnf           : 98/19000 (mem: 659.25 MiB)
+poseidon ext  : 8182/17000 (mem: 659.25 MiB)
+poseidon int  : 46628/96500 (mem: 659.25 MiB)
+overflow      : 0/0 (mem: 659.25 MiB)
+ (mem: 659.25 MiB)
+Total structured size: 260001 (mem: 659.25 MiB)
+allocating polynomials object in proving key... (mem: 659.25 MiB)
+2025-10-11T17:26:06.641Z [aztec-cli] [17:26:06.633] INFO: pxe:bb:native bb - populating trace... (mem: 659.25 MiB)
+2025-10-11T17:26:06.673Z [aztec-cli] [17:26:06.672] INFO: pxe:bb:native bb - time to construct proving key: 90 ms. (mem: 659.25 MiB)
+computing pg proof... (mem: 659.25 MiB)
+2025-10-11T17:26:06.674Z [aztec-cli] [17:26:06.673] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x0cd0f94dd0478462e9d7da88e6658a55305a91671e55fffdc568d93327201419 (mem: 659.25 MiB)
+2025-10-11T17:26:06.675Z [aztec-cli] [17:26:06.674] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 659.25 MiB)
+2025-10-11T17:26:07.190Z [aztec-cli] [17:26:07.121] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 659.50 MiB)
+2025-10-11T17:26:07.209Z [aztec-cli] [17:26:07.202] INFO: pxe:bb:native bb - perturbator round (mem: 670.75 MiB)
+2025-10-11T17:26:07.339Z [aztec-cli] [17:26:07.312] INFO: pxe:bb:native bb - combiner quotient round (mem: 670.75 MiB)
+2025-10-11T17:26:07.405Z [aztec-cli] [17:26:07.397] INFO: pxe:bb:native bb - folded (mem: 670.75 MiB)
+pg proof constructed (mem: 670.75 MiB)
+[17:26:07.398] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x0cd0f94dd0478462e9d7da88e6658a55305a91671e55fffdc568d93327201419 (mem: 670.75 MiB)
+2025-10-11T17:26:07.406Z [aztec-cli] [17:26:07.398] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 670.75 MiB)
+2025-10-11T17:26:07.535Z [aztec-cli] [17:26:07.482] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_tail' (mem: 670.75 MiB)
+ClientIVC: accumulating private_kernel_tail (mem: 670.75 MiB)
+2025-10-11T17:26:07.599Z [aztec-cli] [17:26:07.569] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x0cd0f94dd0478462e9d7da88e6658a55305a91671e55fffdc568d93327201419 (mem: 670.75 MiB)
+[17:26:07.573] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 670.75 MiB)
+expected vk hash: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 670.75 MiB)
+2025-10-11T17:26:07.615Z [aztec-cli] [17:26:07.613] INFO: pxe:bb:native bb - PG accum hash from IO: 0x0cd0f94dd0478462e9d7da88e6658a55305a91671e55fffdc568d93327201419 (mem: 670.75 MiB)
+2025-10-11T17:26:07.631Z [aztec-cli] [17:26:07.628] INFO: pxe:bb:native bb - kernel output pg hash: 0x142539e9db93ada5d173ca34e8e6eaa03607c6515d04d052b8089a71d6206dd9 (mem: 670.75 MiB)
+[17:26:07.629] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_tail' (mem: 670.75 MiB)
+Constructing DeciderProvingKey (mem: 670.75 MiB)
+2025-10-11T17:26:07.666Z [aztec-cli] [17:26:07.648] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 670.75 MiB)
+goblin ecc op : 408/1000 (mem: 670.75 MiB)
+busread       : 2001/3000 (mem: 670.75 MiB)
+lookups       : 2/13000 (mem: 670.75 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 670.75 MiB)
+[17:26:07.649] INFO: pxe:bb:native bb - 
+arithmetic    : 39356/59000 (mem: 670.75 MiB)
+delta range   : 4051/18000 (mem: 670.75 MiB)
+elliptic      : 2/6500 (mem: 670.75 MiB)
+memory        : 11792/25000 (mem: 670.75 MiB)
+nnf           : 98/19000 (mem: 670.75 MiB)
+poseidon ext  : 4622/17000 (mem: 670.75 MiB)
+poseidon int  : 26336/96500 (mem: 670.75 MiB)
+overflow      : 0/0 (mem: 670.75 MiB)
+ (mem: 670.75 MiB)
+Total structured size: 260001 (mem: 670.75 MiB)
+allocating polynomials object in proving key... (mem: 670.75 MiB)
+2025-10-11T17:26:07.682Z [aztec-cli] [17:26:07.680] INFO: pxe:bb:native bb - populating trace... (mem: 670.75 MiB)
+2025-10-11T17:26:07.717Z [aztec-cli] [17:26:07.711] INFO: pxe:bb:native bb - time to construct proving key: 82 ms. (mem: 670.75 MiB)
+computing pg proof... (mem: 670.75 MiB)
+[17:26:07.712] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x142539e9db93ada5d173ca34e8e6eaa03607c6515d04d052b8089a71d6206dd9 (mem: 670.75 MiB)
+[17:26:07.713] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x176c4b478f7149b7975053adb9fc6c1d34e4fd8a6d3ec97cedd3880ac248ca36 (mem: 670.75 MiB)
+2025-10-11T17:26:08.230Z [aztec-cli] [17:26:08.080] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 670.75 MiB)
+2025-10-11T17:26:08.231Z [aztec-cli] [17:26:08.173] INFO: pxe:bb:native bb - perturbator round (mem: 670.75 MiB)
+2025-10-11T17:26:08.298Z [aztec-cli] [17:26:08.295] INFO: pxe:bb:native bb - combiner quotient round (mem: 670.75 MiB)
+2025-10-11T17:26:08.427Z [aztec-cli] [17:26:08.384] INFO: pxe:bb:native bb - folded (mem: 670.75 MiB)
+pg proof constructed (mem: 670.75 MiB)
+prove decider... (mem: 670.75 MiB)
+2025-10-11T17:26:08.427Z [aztec-cli] [17:26:08.385] INFO: pxe:bb:native bb - 
+2025-10-11T17:26:08.495Z [aztec-cli] [17:26:08.482] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 771.56 MiB)
+2025-10-11T17:26:08.628Z [aztec-cli] [17:26:08.620] INFO: pxe:bb:native bb - completed 18 rounds of sumcheck (mem: 771.56 MiB)
+2025-10-11T17:26:09.142Z [aztec-cli] [17:26:09.141] INFO: pxe:bb:native bb - executed multivariate-to-univariate reduction (mem: 771.56 MiB)
+2025-10-11T17:26:09.400Z [aztec-cli] [17:26:09.306] INFO: pxe:bb:native bb - computed opening proof (mem: 771.56 MiB)
+finished decider proving. (mem: 771.56 MiB)
+[17:26:09.307] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x142539e9db93ada5d173ca34e8e6eaa03607c6515d04d052b8089a71d6206dd9 (mem: 771.56 MiB)
+[17:26:09.308] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x176c4b478f7149b7975053adb9fc6c1d34e4fd8a6d3ec97cedd3880ac248ca36 (mem: 771.56 MiB)
+[17:26:09.346] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'hiding_kernel' (mem: 771.56 MiB)
+ClientIVC: accumulating hiding_kernel (mem: 771.56 MiB)
+[17:26:09.367] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x142539e9db93ada5d173ca34e8e6eaa03607c6515d04d052b8089a71d6206dd9 (mem: 771.56 MiB)
+2025-10-11T17:26:09.400Z [aztec-cli] [17:26:09.372] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x176c4b478f7149b7975053adb9fc6c1d34e4fd8a6d3ec97cedd3880ac248ca36 (mem: 771.56 MiB)
+expected vk hash: 0x176c4b478f7149b7975053adb9fc6c1d34e4fd8a6d3ec97cedd3880ac248ca36 (mem: 771.56 MiB)
+2025-10-11T17:26:09.467Z [aztec-cli] [17:26:09.436] INFO: pxe:bb:native bb - PG accum hash from IO: 0x142539e9db93ada5d173ca34e8e6eaa03607c6515d04d052b8089a71d6206dd9 (mem: 771.56 MiB)
+2025-10-11T17:26:09.468Z [aztec-cli] [17:26:09.442] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'hiding_kernel' (mem: 771.56 MiB)
+Constructing DeciderProvingKey (mem: 771.56 MiB)
+2025-10-11T17:26:09.469Z [aztec-cli] [17:26:09.447] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 771.56 MiB)
+goblin ecc op : 586/1000 (mem: 771.56 MiB)
+busread       : 3/3000 (mem: 771.56 MiB)
+lookups       : 2/13000 (mem: 771.56 MiB)
+pub inputs    : 1874/2000 (populated in decider pk constructor) (mem: 771.56 MiB)
+arithmetic    : 13440/59000
+2025-10-11T17:26:09.469Z [aztec-cli] [17:26:09.447] INFO: pxe:bb:native bb -  (mem: 771.56 MiB)
+delta range   : 2715/18000 (mem: 771.56 MiB)
+elliptic      : 2/6500 (mem: 771.56 MiB)
+memory        : 2/25000 (mem: 771.56 MiB)
+nnf           : 74/19000 (mem: 771.56 MiB)
+poseidon ext  : 4912/17000 (mem: 771.56 MiB)
+poseidon int  : 27989/96500 (mem: 771.56 MiB)
+overflow      : 0/0 (mem: 771.56 MiB)
+ (mem: 771.56 MiB)
+Total structured size: 260001 (mem: 771.56 MiB)
+allocating polynomials object in proving key... (mem: 771.56 MiB)
+2025-10-11T17:26:09.488Z [aztec-cli] [17:26:09.479] INFO: pxe:bb:native bb - populating trace... (mem: 771.56 MiB)
+2025-10-11T17:26:09.507Z [aztec-cli] [17:26:09.499] INFO: pxe:bb:native bb - time to construct proving key: 56 ms. (mem: 771.56 MiB)
+Constructing DeciderProvingKey (mem: 771.56 MiB)
+[17:26:09.500] INFO: pxe:bb:native bb - allocating polynomials object in proving key... (mem: 771.56 MiB)
+2025-10-11T17:26:09.523Z [aztec-cli] [17:26:09.516] INFO: pxe:bb:native bb - populating trace... (mem: 771.56 MiB)
+2025-10-11T17:26:09.555Z [aztec-cli] [17:26:09.539] INFO: pxe:bb:native bb - time to construct proving key: 39 ms. (mem: 771.56 MiB)
+2025-10-11T17:26:09.812Z [aztec-cli] [17:26:09.691] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x08f9ce86791f5ed707161591c72ea898dc992dee488e9bcf82d207e241a4fa0d (mem: 771.56 MiB)
+2025-10-11T17:26:09.941Z [aztec-cli] [17:26:09.936] INFO: pxe:bb:native bb - created oink proof (mem: 771.56 MiB)
+2025-10-11T17:26:09.973Z [aztec-cli] [17:26:09.959] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 771.56 MiB)
+2025-10-11T17:26:10.102Z [aztec-cli] [17:26:10.051] INFO: pxe:bb:native bb - completed 16 rounds of sumcheck (mem: 771.56 MiB)
+2025-10-11T17:26:10.359Z [aztec-cli] [17:26:10.305] INFO: pxe:bb:native bb - executed multivariate-to-univariate reduction (mem: 771.56 MiB)
+2025-10-11T17:26:10.366Z [aztec-cli] [17:26:10.361] INFO: pxe:bb:native bb - computed opening proof (mem: 771.56 MiB)
+finished decider proving. (mem: 771.56 MiB)
+2025-10-11T17:26:10.366Z [aztec-cli] [17:26:10.364] INFO: pxe:bb:native bb - ClientIvcProve - generating proof for 7 accumulated circuits (mem: 771.56 MiB)
+2025-10-11T17:26:10.400Z [aztec-cli] [17:26:10.396] INFO: pxe:bb:native bb - Constructing a Goblin proof with num ultra ops = 2290 (mem: 771.56 MiB)
+prove eccvm... (mem: 771.56 MiB)
+2025-10-11T17:26:10.529Z [aztec-cli] [17:26:10.517] INFO: pxe:bb:native bb - using cached grumpkin crs with num points 65537 at: "/home/dev/.bb-crs/grumpkin_g1.flat.dat" (mem: 771.56 MiB)
+2025-10-11T17:26:10.529Z [aztec-cli] [17:26:10.523] INFO: pxe:bb:native bb - Initialized Grumpkin prover CRS from memory with num points = 65537 (mem: 771.56 MiB)
+2025-10-11T17:26:10.529Z [aztec-cli] [17:26:10.523] INFO: pxe:bb:native bb - ECCVM vk hash in prover: 0x1ae0b9a22be9cf32b1a138fac0062ca8304f7a393c1664e83d3e0c57e2b4873e (mem: 771.56 MiB)
+2025-10-11T17:26:11.558Z [aztec-cli] [17:26:11.187] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 771.56 MiB)
+2025-10-11T17:26:11.623Z [aztec-cli] [17:26:11.615] INFO: pxe:bb:native bb - completed 16 rounds of sumcheck (mem: 771.56 MiB)
+2025-10-11T17:26:13.676Z [aztec-cli] [17:26:12.702] INFO: pxe:bb:native bb - finished eccvm proving. (mem: 771.56 MiB)
+prove translator... (mem: 771.56 MiB)
+[17:26:12.798] INFO: pxe:bb:native bb - Translator vk hash in prover: 0x06d623dfe5d6f6826735a9adfa4fd602146e0ccca2410e39e836b65b355fdeaa (mem: 771.56 MiB)
+2025-10-11T17:26:13.676Z [aztec-cli] [17:26:13.269] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 771.56 MiB)
+2025-10-11T17:26:13.936Z [aztec-cli] [17:26:13.852] INFO: pxe:bb:native bb - completed 18 rounds of sumcheck (mem: 771.56 MiB)
+2025-10-11T17:26:14.966Z [aztec-cli] [17:26:14.914] INFO: pxe:bb:native bb - computed opening proof (mem: 771.56 MiB)
+[17:26:14.914] INFO: pxe:bb:native bb - finished translator proving. (mem: 771.56 MiB)
+ClientIvcProve - verifying the generated proof as a sanity check (mem: 771.56 MiB)
+[17:26:14.915] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x08f9ce86791f5ed707161591c72ea898dc992dee488e9bcf82d207e241a4fa0d (mem: 771.56 MiB)
+[17:26:14.930] INFO: pxe:bb:native bb - sumcheck_verified: 1 (mem: 771.56 MiB)
+libra_evals_verified: 1 (mem: 771.56 MiB)
+pairing_check_verified: 1 (mem: 771.56 MiB)
+Mega verified: 1 (mem: 771.56 MiB)
+[17:26:14.932] INFO: pxe:bb:native bb - ECCVM vk hash in verifier: 0x1ae0b9a22be9cf32b1a138fac0062ca8304f7a393c1664e83d3e0c57e2b4873e (mem: 771.56 MiB)
+2025-10-11T17:26:15.029Z [aztec-cli] [17:26:14.998] INFO: pxe:bb:native bb - eccvm sumcheck verified?: 1 (mem: 771.56 MiB)
+batch opening verified?: 1 (mem: 771.56 MiB)
+eccvm consistency check verified?: 1 (mem: 771.56 MiB)
+translation masking consistency checked?: 1 (mem: 771.56 MiB)
+[17:26:14.999] INFO: pxe:bb:native bb - Translator vk hash in verifier: 0x06d623dfe5d6f6826735a9adfa4fd602146e0ccca2410e39e836b65b355fdeaa (mem: 771.56 MiB)
+[17:26:15.010] INFO: pxe:bb:native bb - merge verified?: 1 (mem: 771.56 MiB)
+eccvm verified?: 1 (mem: 771.56 MiB)
+accumulator construction_verified?: 1 (mem: 771.56 MiB)
+translation verified?: 1 (mem: 771.56 MiB)
+consistency verified?: 1 (mem: 771.56 MiB)
+[17:26:15.010] INFO: pxe:bb:native bb - Goblin verified: 1 (mem: 771.56 MiB)
+2025-10-11T17:26:15.029Z [aztec-cli] [17:26:15.011] INFO: pxe:bb:native bb - writing ClientIVC proof in directory "/home/dev/.aztec/wallet/bb/tmp-Ig1W6d" (mem: 771.56 MiB)
+2025-10-11T17:26:15.093Z [aztec-cli] [17:26:15.073] INFO: pxe:bb:native Generated IVC proof {"duration":11174.488097999998,"eventName":"circuit-proving"}
+2025-10-11T17:26:24.804Z [aztec-cli] 
+Transaction hash: 0x0ae6597bdf7f9bc7e55750e4f124c55c9f023ecbc218360a813cb2e7eea1ee43
+2025-10-11T17:26:25.151Z [aztec-cli] [17:26:24.804] INFO: pxe:service Sent transaction 0x0ae6597bdf7f9bc7e55750e4f124c55c9f023ecbc218360a813cb2e7eea1ee43
+2025-10-11T17:28:50.186Z [aztec-cli] Transaction has been mined
+2025-10-11T17:28:50.475Z [aztec-cli]  Tx fee: 373227180
+ Status: success
+ Block number: 37434
+ Block hash: 0x00d20dd2f64cfeb34833f1d0489b7d2d237d21d2bb70ff0c5a00e13d75546098
+2025-10-11T17:28:50.494Z [aztec-cli] Transaction hash stored in database with aliases last & consume_from_inbox-cd81
+2025-10-11T17:28:51.919Z [aztec] consume_from_inbox success { leafIndex: '598896' }
+2025-10-11T17:28:51.920Z [state] saved { lastProcessed: 21 }
+2025-10-11T17:28:51.920Z [drain] processed 21
+2025-10-11T17:28:51.920Z [drain] idle expected 22 pending []
+2025-10-11T17:28:51.920Z running...
+2025-10-11T17:28:56.925Z [poll] tick expected 22
+2025-10-11T17:28:58.333Z [sol] recent sigs 51
+2025-10-11T17:28:58.509Z [sol] seqs 3pYnXQkGjEwHtJepvYKt65QaXAvxecXaFYYs9y5e5HwUgtBzTYfjfrYBNJ8azMFA29CZdjYjFWL7fZhpvff9N13K []
+2025-10-11T17:28:58.684Z [sol] seqs 2jrvxjy6JhemKagzrHiaE5VLqmTSVS6cBCymkSzDezEmUTx9qqzkDYAtSeJXBH4Z6yt5metV7fV2z2ZWihAatPfm []
+2025-10-11T17:28:58.860Z [sol] seqs 4HpPyeQo5yvaDfAg9QqgvF76wVZgbPz4pXxrQJV3tPQmB2zdgEof6NP6tB1PyaTh5YRDZwaJinFGJWcLg9gZrBU1 []
+2025-10-11T17:28:59.036Z [sol] seqs 5nB9s6kA9NRfb9neqAX7EKNEbtxDkan8npfsaqKAzhJiDbn66GLpbmGrKaw97Rsc6WSGo66WtfxCEfXQxL7ANH5E []
+2025-10-11T17:28:59.212Z [sol] seqs 2rYSAnwF918KTRtp2ABW6gvetKo1JdXSmBoWyB56hZGiGZ94nhxoAQigdUMuATfrWcoL7oZZ6ihAXcU9RVWGVxSs []
+2025-10-11T17:28:59.387Z [sol] seqs 5mUMjGUrZFCNahqr3T6TwUb17iF8QLFSLmJWGhgysRBfoMSM6QjZL1mhVNqFZyMUXuXcoSo3QeU2W8qP66cp9X9k []
+2025-10-11T17:28:59.562Z [sol] seqs 5J9qFJqQLSp7Ki9gCDkTDVRfqRxCmJwuvrS2UiWd9itfCu2B5PTByu26q3ZXiSoueBETYqCkfEouZwMjrhF6Ut1M []
+2025-10-11T17:28:59.744Z [sol] seqs 4btCXtucqLVrM97W3zpW2HN1sVtp647KVMXSB7nUF5BwRpnxBLMcU6UWSyHFdk9F5Emm1QuMqb4T1VYVxKdKwiYn []
+2025-10-11T17:28:59.921Z [sol] seqs 2VPZpiPhKiTZFaqLNbzMQ3x2zuAhdrFxXtHFfR1NBHbvFfmtQqAjXTUNg7fpKFaUeNgnU5ECY15hkD6jBTHm8V8r []
+2025-10-11T17:29:00.101Z [sol] seqs 65K6wxXUyq83WRjVhjEbGkgx11YiybriykgpSaLt6S7mhFizNmwHZVbVAS2qigKPiveUCQBbEyv1p3g4oaGHWUma []
+2025-10-11T17:29:00.275Z [sol] seqs uJpSPNntE5igBNmoPT2wP4o3JcUNpuG2WNZzBhjAQJTC36fH9CzuCmCgu5xfuCj2ZigHss1F6ykqh2mUaabVWPP []
+2025-10-11T17:29:00.452Z [sol] seqs 3T8h2hgdUrm1zL2qiuqGDYWVLU922ckW9Q4bCPB2rPNKuriu5a7Dcd8oRZrNuhue8Vr2yC64LngT8ejAQRpeCwVh []
+2025-10-11T17:29:00.629Z [sol] seqs 43DyG33PEbMdNoLJh8tNfuMPFFFXaYwvcdiEpw6jLhJhDZ2ekpZQ5yhbr5hujwXsAjVtKL8Ggu2vwDZ8em7G9TDz []
+2025-10-11T17:29:00.804Z [sol] seqs E6pzcWTTGj8KQuBwG4jL7QoRJUWFqTdgihK8EgEBu26q2kBJjhjxtiPZUGt7t3dQtpQK9C3A6VZdMU6vFLhCrcd []
+2025-10-11T17:29:00.983Z [sol] seqs 2LPrzoimEssSMuL7Gc8nJNVJKpSgUhPjyqCgvamGkgCKFkiWufeDYH1tQFJQJwbQdXfa9kA2zLfLYWKyBncvgqWn []
+2025-10-11T17:29:00.983Z [drain] idle expected 22 pending []
+2025-10-11T17:29:01.925Z [poll] tick expected 22
+2025-10-11T17:29:02.522Z [sol] recent sigs 51
+2025-10-11T17:29:02.522Z [drain] idle expected 22 pending []
+2025-10-11T17:29:06.926Z [poll] tick expected 22
