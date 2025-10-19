@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="docs/img/zk-coprocessor-bridge_banner.png" width="800" alt="ZK Coprocessor Bridge banner">
+</div>
+
 # ZK Coprocessor Bridge 🛡️
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE-MIT)
