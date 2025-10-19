@@ -11,6 +11,10 @@
 **ZK Coprocessor for Solana** — a bridge enabling private ZK computations on Aztec via Ethereum and Wormhole, with replay-safe finality.  
 Solana ⇄ Wormhole ⇄ Ethereum ⇄ Aztec (ZK proofs) ✅
 
+🧾 **Latest Proof**: **Success** — end-to-end test (2025-10-11)  
+Solana (devnet) → Wormhole (testnet) → Ethereum (Sepolia) → Aztec (testnet)  
+Latest proof: [`proof-2025-10-11.md`](docs/proofs/proof-2025-10-11.md)    Raw logs: [`log-2025-10-11.txt`](docs/logs/log-2025-10-11.txt)
+
 ## ⚙️ What it does
 - Uses **Aztec** as a privacy coprocessor for Solana via Wormhole.
 - **Forward:** Solana posts → Wormhole VAA → Sepolia Portal verifies & blocks replays → enqueues L1→L2 into Aztec Inbox → (optional) relayer consumes on Aztec.
