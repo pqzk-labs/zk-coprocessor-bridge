@@ -20,7 +20,7 @@
     "axios": "^1.7.2",
     "bn.js": "^5.2.2",
     "commander": "^14.0.1",
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.2.3",
     "ethers": "^5.8.0"
   },
   "devDependencies": {
