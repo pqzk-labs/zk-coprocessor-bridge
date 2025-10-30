@@ -7,9 +7,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE-MIT)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE-APACHE)
 [![CI](https://github.com/pqzk-labs/zk-coprocessor-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/pqzk-labs/zk-coprocessor-bridge/actions/workflows/ci.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17409586.svg)](https://doi.org/10.5281/zenodo.17409586)
 
 **ZK Coprocessor for Solana** — a bridge enabling private ZK computations on Aztec via Ethereum and Wormhole, with replay-safe finality.  
 Solana ⇄ Wormhole ⇄ Ethereum ⇄ Aztec (ZK proofs) ✅
+
+🔬📄 **Paper:** [arXiv:2510.22536](https://arxiv.org/abs/2510.22536) • [DOI:10.5281/zenodo.17409586](https://doi.org/10.5281/zenodo.17409586)
 
 🧾 **Latest Proof**: **Success** — end-to-end test (2025-10-11)  
 Solana (devnet) → Wormhole (testnet) → Ethereum (Sepolia) → Aztec (testnet)  
