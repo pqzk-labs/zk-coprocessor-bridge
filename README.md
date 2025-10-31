@@ -47,7 +47,9 @@ Latest proof: [`proof-2025-10-11.md`](docs/proofs/proof-2025-10-11.md)    Raw lo
 
 ## 🚀 Quick start
 > **Prereqs (suggested):** Node 24+, npm, Foundry, Anchor CLI, Solana CLI, Aztec CLI, aztec-wallet, a Sepolia account with ETH.  
-> **Networks:** Solana devnet, Wormhole testnet, Ethereum Sepolia, Aztec testnet.
+> **Networks:** Solana devnet, Wormhole testnet, Ethereum Sepolia, Aztec testnet.  
+> ⚠️ **Note:** Aztec is an active testnet — L1→L2 message processing or proof generation may be delayed when the explorer shows backlog. In some cases this can take several hours or a few days; Solana and Ethereum finality are unaffected.
+> You can check network status and pending transactions at [AztecScan](https://testnet.aztecscan.xyz/).  
 
 ### 1. Deploy Solana program
 ```
