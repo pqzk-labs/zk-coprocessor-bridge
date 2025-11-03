@@ -13,7 +13,7 @@
     "send": "tsx src/send.ts"
   },
   "dependencies": {
-    "@aztec/aztec.js": "2.0.3",
+    "@aztec/aztec.js": "2.0.4",
     "@certusone/wormhole-sdk": "^0.10.18",
     "@coral-xyz/anchor": "^0.32.1",
     "@solana/web3.js": "^1.98.4",
