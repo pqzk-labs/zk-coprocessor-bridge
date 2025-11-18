@@ -10,7 +10,8 @@
     "start": "node dist/cli.js",
     "dev": "tsx src/cli.ts",
     "relayer": "tsx src/relayer.ts",
-    "send": "tsx src/send.ts"
+    "send": "tsx src/send.ts",
+    "sandbox": "tsx src/sandbox.ts"
   },
   "dependencies": {
     "@aztec/aztec.js": "2.1.2",
