@@ -2,7 +2,7 @@
   <img src="docs/img/zk-coprocessor-bridge_banner.png" width="800" alt="ZK Coprocessor Bridge banner">
 </div>
 
-# ZK Coprocessor Bridge 🛡️
+# ZK Coprocessor Bridge 🛡️🔗
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE-MIT)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE-APACHE)
@@ -14,9 +14,11 @@ Solana ⇄ Wormhole ⇄ Ethereum ⇄ Aztec (ZK proofs) ✅
 
 🔬📄 **Paper:** [arXiv:2510.22536](https://arxiv.org/abs/2510.22536) • [DOI:10.5281/zenodo.17409586](https://doi.org/10.5281/zenodo.17409586)
 
-🧾 **Latest Proof**: **Success** — end-to-end test (2025-10-11)  
+🧾 **Latest Proofs**: **Success ✅** — end-to-end test (2025-10-11), local sandbox test (2025-11-19)   
 Solana (devnet) → Wormhole (testnet) → Ethereum (Sepolia) → Aztec (testnet)  
-Latest proof: [`proof-2025-10-11.md`](docs/proofs/proof-2025-10-11.md)    Raw logs: [`log-2025-10-11.txt`](docs/logs/log-2025-10-11.txt)
+Latest proof: [`proof-2025-10-11.md`](docs/proofs/proof-2025-10-11.md)    Raw logs: [`log-2025-10-11.txt`](docs/logs/log-2025-10-11.txt)  
+L1 → Portal → Aztec Inbox → Noir contract (consume_from_inbox) in local sandbox  
+Latest proof: [`proof-2025-11-19.md`](docs/proofs/proof-2025-11-19.md)    Raw logs: [`log-2025-11-19.txt`](docs/logs/log-2025-11-19.txt)
 
 ## ⚙️ What it does
 
@@ -48,8 +50,8 @@ Latest proof: [`proof-2025-10-11.md`](docs/proofs/proof-2025-10-11.md)    Raw lo
 ## 🚀 Quick start
 > **Prereqs (suggested):** Node 24+, npm, Foundry, Anchor CLI, Solana CLI, Aztec CLI, aztec-wallet, a Sepolia account with ETH.  
 > **Networks:** Solana devnet, Wormhole testnet, Ethereum Sepolia, Aztec testnet.  
-> ⚠️ **Note:** Aztec is an active testnet — L1→L2 message processing or proof generation may be delayed when the explorer shows backlog. In some cases this can take several hours or a few days; Solana and Ethereum finality are unaffected.
-> You can check network status and pending transactions at [AztecScan](https://testnet.aztecscan.xyz/).  
+> ⚠️ **Note:** Note: Aztec is an actively evolving testnet. The Aztec testnet may occasionally become partially unavailable — L1→L2 messages and proofs might pause or fail to appear on the explorer. [AztecScan](https://testnet.aztecscan.xyz/).  
+> Solana and Ethereum finality are unaffected. If you need to test the Aztec side during downtime, use the Aztec Sandbox: [`sandbox.md`](docs/sandbox.md) .
 
 ### 1. Deploy Solana program
 ```
