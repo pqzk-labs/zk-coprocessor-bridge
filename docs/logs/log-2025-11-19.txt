@@ -1,0 +1,860 @@
+user@pc:~/zk-coprocessor-bridge/aztec-contracts/contracts/zk-coprocessor-contracts$  aztec get-node-info  --node-url http://host.docker.internal:8080
+Node Version: 2.1.6
+Chain Id: 31337
+Rollup Version: 1714697526
+Node ENR: undefined
+L1 Contract Addresses:
+ Rollup Address: 0xda7039fa1c2fabaad03d1d890f590ebe9c0408b5
+ Registry Address: 0xa98948ea3a7df8fc36f3b1c1d4db61d0317d36d5
+ L1 -> L2 Inbox Address: 0x9e938d55138b5de27c52d39a213072d9c7f0da8e
+ L2 -> L1 Outbox Address: 0xc888b9071b42b4fe2dcbbd8b10a16764de99352e
+ Fee Juice Address: 0x47171c85fd1763941fa524bab7b5552346c9ec45
+ Staking Asset Address: 0x8a0dfd33041146083f9481e276e429f41f711363
+ Fee Juice Portal Address: 0x75fbe483e026eaa6b2a31496a57155b64f7c260c
+ CoinIssuer Address: 0x14e3bdf30593e39bbc7f1675f4e3205cbc6343f7
+ RewardDistributor Address: 0xc73663265e57ac2ee9e149f5ee6b944febf07766
+ GovernanceProposer Address: 0xc80d1c35dfacea29167e9f0dfc18edff3ede8539
+ Governance Address: 0x846701f6905eb7befc3527731f8de48b773a53cb
+ SlashFactory Address: 0xa1b5fd098d431ede71bca3b09711d902ba1d3e5b
+ FeeAssetHandler Address: 0x43b77f318780e4510cfb9c4c148472990536047b
+ StakingAssetHandler Address: 0x132f9112f9d09b64bec6689763547eb590ddee2d
+L2 Contract Addresses:
+ Class Registry: 0x0000000000000000000000000000000000000000000000000000000000000003
+ Fee Juice: 0x0000000000000000000000000000000000000000000000000000000000000005
+ Instance Deployer: 0x0000000000000000000000000000000000000000000000000000000000000002
+ MultiCall: 0x0000000000000000000000000000000000000000000000000000000000000004
+
+
+user@pc:~/zk-coprocessor-bridge/aztec-contracts/contracts/zk-coprocessor-contracts$  aztec-wallet deploy "$ART" \
+  --from accounts:test0 \           
+  --payment method=fee_juice,feePayer=test0
+[10:29:30.851] INFO: wallet Using local PXE service
+[10:29:30.854] INFO: kv-store:lmdb-v2 Starting data store with maxReaders 16
+[10:29:30.939] INFO: pxe:data:lmdb Creating pxe_data data store at directory /home/user/.aztec/wallet/pxe/pxe_data with map size 134217728 KB (LMDB v2)
+[10:29:30.943] INFO: pxe:data:lmdb Starting data store with maxReaders 16
+[10:29:31.851] INFO: pxe:service Started PXE connected to chain 31337 version 1714697526
+Using Fee Juice for fee payment
+[10:29:31.959] INFO: wallet Using wallet with address 0x2735b31fb4c6dc2f407bc468669a7edb40a580626f06c4c4e1bfacbae4e9d24a
+[10:29:32.027] WARN: pxe:service No artifact found for contract class 0x14d5ec9b65c4507a7330f956e4e9f63d3abaf85cc09654b539918b92fe8df9dc when looking for its metadata
+[10:29:32.034] INFO: aztecjs:contract_interaction Creating request for publishing contract class 0x14d5ec9b65c4507a7330f956e4e9f63d3abaf85cc09654b539918b92fe8df9dc as part of deployment for 0x16d3020c1018bc807be36a4d657351aaf774cb7c92e0d6bcd3058e6a98aba42f
+[10:29:32.327] INFO: pxe:service Added contract ZkCoprocessorContracts at 0x16d3020c1018bc807be36a4d657351aaf774cb7c92e0d6bcd3058e6a98aba42f with class 0x14d5ec9b65c4507a7330f956e4e9f63d3abaf85cc09654b539918b92fe8df9dc
+[10:29:38.052] INFO: pxe:private-kernel-execution-prover Private kernel witness generation took 3105.0033030000004ms
+[10:29:38.052] INFO: pxe:bb:native Generating Client IVC proof
+[10:29:39.339] INFO: pxe:bb:native inputsPath /home/user/.aztec/wallet/bb/tmp-scnjSR/ivc-inputs.msgpack
+[10:29:39.340] INFO: pxe:bb:native bb - BB concurrency: undefined
+[10:29:39.340] INFO: pxe:bb:native bb - Executing BB with: /usr/src/barretenberg/cpp/build/bin/bb prove -o /home/user/.aztec/wallet/bb/tmp-scnjSR --ivc_inputs_path /home/user/.aztec/wallet/bb/tmp-scnjSR/ivc-inputs.msgpack -v --scheme client_ivc
+[10:29:39.400] INFO: pxe:bb:native bb - bb command: prove (mem: 153.47 MiB)
+Scheme is: client_ivc, num threads: 8 (mem: 153.47 MiB)
+[10:29:39.400] INFO: pxe:bb:native bb -   --scheme: client_ivc (mem: 153.47 MiB)
+  --output_path: /home/user/.aztec/wallet/bb/tmp-scnjSR (mem: 153.47 MiB)
+  --ivc_inputs_path: /home/user/.aztec/wallet/bb/tmp-scnjSR/ivc-inputs.msgpack (mem: 153.47 MiB)
+  --verbose: true (mem: 153.47 MiB)
+[10:29:39.818] INFO: pxe:bb:native bb - BN254 commitment key size: 262144 (mem: 153.47 MiB)
+[10:29:39.819] INFO: pxe:bb:native bb - using cached bn254 crs with num points 262145 at "/home/user/.bb-crs/bn254_g1.dat" (mem: 153.47 MiB)
+[10:29:40.162] INFO: pxe:bb:native bb - Initialized BN254 CRS from memory with num points = 262145 (mem: 153.47 MiB)
+[10:29:40.163] INFO: pxe:bb:native bb - ClientIVC: starting with 11 circuits (mem: 153.47 MiB)
+[10:29:40.177] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'SchnorrAccount:entrypoint' (mem: 153.47 MiB)
+ClientIVC: accumulating SchnorrAccount:entrypoint (mem: 153.47 MiB)
+[10:29:40.275] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'SchnorrAccount:entrypoint' (mem: 153.47 MiB)
+[10:29:40.275] INFO: pxe:bb:native bb - Constructing DeciderProvingKey (mem: 153.47 MiB)
+[10:29:40.291] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 153.47 MiB)
+goblin ecc op : 4/1000 (mem: 153.47 MiB)
+busread       : 751/3000 (mem: 153.47 MiB)
+lookups       : 2076/13000 (mem: 153.47 MiB)
+pub inputs    : 16/2000 (populated in decider pk constructor) (mem: 153.47 MiB)
+arithmetic    : 8823/59000 (mem: 153.47 MiB)
+delta range   : 2635/18000 (mem: 153.47 MiB)
+elliptic      : 794/6500 (mem: 153.47 MiB)
+memory        : 4504/25000 (mem: 153.47 MiB)
+nnf           : 2/19000 (mem: 153.47 MiB)
+poseidon ext  : 312/17000 (mem: 153.47 MiB)
+poseidon int  : 1769/96500 (mem: 153.47
+[10:29:40.291] INFO: pxe:bb:native bb -  MiB)
+overflow      : 0/0 (mem: 153.47 MiB)
+ (mem: 153.47 MiB)
+Total structured size: 260001 (mem: 153.47 MiB)
+[10:29:40.291] INFO: pxe:bb:native bb - allocating polynomials object in proving key... (mem: 153.47 MiB)
+[10:29:40.821] INFO: pxe:bb:native bb - populating trace... (mem: 345.86 MiB)
+[10:29:41.000] INFO: pxe:bb:native bb - time to construct proving key: 724 ms. (mem: 362.74 MiB)
+[10:29:41.000] INFO: pxe:bb:native bb - Accumulating first app circuit with OINK (mem: 362.74 MiB)
+computing oink proof... (mem: 362.74 MiB)
+[10:29:41.002] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x18c8087958e565d75671a76d7b98dedb7f646c3e0b1b1d2d5b649264c36a573c (mem: 362.86 MiB)
+[10:29:41.468] INFO: pxe:bb:native bb - oink proof constructed (mem: 373.99 MiB)
+[10:29:41.469] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x18c8087958e565d75671a76d7b98dedb7f646c3e0b1b1d2d5b649264c36a573c (mem: 373.99 MiB)
+[10:29:41.608] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_init' (mem: 374.74 MiB)
+ClientIVC: accumulating private_kernel_init (mem: 374.74 MiB)
+[10:29:41.668] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x18c8087958e565d75671a76d7b98dedb7f646c3e0b1b1d2d5b649264c36a573c (mem: 374.74 MiB)
+expected vk hash: 0x18c8087958e565d75671a76d7b98dedb7f646c3e0b1b1d2d5b649264c36a573c (mem: 374.74 MiB)
+[10:29:41.718] INFO: pxe:bb:native bb - kernel output pg hash: 0x0802c9a80e350964de37bb950fabd7635599b7d344856108beb02a57de67f52c (mem: 376.74 MiB)
+[10:29:41.718] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_init' (mem: 376.74 MiB)
+Constructing DeciderProvingKey (mem: 376.74 MiB)
+[10:29:41.728] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 376.99 MiB)
+goblin ecc op : 64/1000
+[10:29:41.728] INFO: pxe:bb:native bb -  (mem: 376.99 MiB)
+busread       : 2243/3000 (mem: 376.99 MiB)
+lookups       : 2/13000 (mem: 376.99 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 376.99 MiB)
+arithmetic    : 14420/59000 (mem: 376.99 MiB)
+delta range   : 3100/18000 (mem: 376.99 MiB)
+elliptic      : 340/6500 (mem: 376.99 MiB)
+memory        : 1013/25000 (mem: 376.99 MiB)
+nnf           : 98/19000 (mem: 376.99 MiB)
+poseidon ext  : 2972/17000 (mem: 376.99 MiB)
+poseidon int  : 16931/96500 (mem: 376.99 MiB)
+overflow      : 0/0 (mem: 376.99 MiB)
+ (mem: 376.99 MiB)
+Total structured size: 260001 (mem: 376.99 MiB)
+allocating polynomials object in proving key... (mem: 376.99 MiB)
+[10:29:42.288] INFO: pxe:bb:native bb - populating trace... (mem: 587.49 MiB)
+[10:29:42.408] INFO: pxe:bb:native bb - time to construct proving key: 689 ms. (mem: 604.74
+[10:29:42.408] INFO: pxe:bb:native bb -  MiB)
+computing pg proof... (mem: 604.74 MiB)
+[10:29:42.409] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x0802c9a80e350964de37bb950fabd7635599b7d344856108beb02a57de67f52c (mem: 604.74 MiB)
+[10:29:42.410] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 604.74 MiB)
+[10:29:43.023] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 608.99 MiB)
+[10:29:43.023] INFO: pxe:bb:native bb - perturbator round (mem: 608.99 MiB)
+[10:29:43.182] INFO: pxe:bb:native bb - combiner quotient round (mem: 609.61 MiB)
+[10:29:43.330] INFO: pxe:bb:native bb - folded (mem: 609.61 MiB)
+pg proof constructed (mem: 609.61 MiB)
+[10:29:43.331] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x0802c9a80e350964de37bb950fabd7635599b7d344856108beb02a57de67f52c (mem: 609.61 MiB)
+[10:29:43.332] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 609.61 MiB)
+[10:29:43.552] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'ContractClassRegistry:publish' (mem: 609.61 MiB)
+ClientIVC: accumulating ContractClassRegistry:publish (mem: 609.61 MiB)
+[10:29:44.021] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'ContractClassRegistry:publish' (mem: 609.61 MiB)
+Constructing DeciderProvingKey (mem: 609.61 MiB)
+[10:29:44.056] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 609.61 MiB)
+goblin ecc op : 4/1000 (mem: 609.61 MiB)
+busread       : 751/3000 (mem: 609.61 MiB)
+lookups       : 2/13000 (mem: 
+[10:29:44.056] INFO: pxe:bb:native bb - 609.61 MiB)
+pub inputs    : 16/2000 (populated in decider pk constructor) (mem: 609.61 MiB)
+arithmetic    : 67906/59000 (mem: 609.61 MiB)
+delta range   : 4813/18000 (mem: 609.61 MiB)
+elliptic      : 2/6500 (mem: 609.61 MiB)
+memory        : 18051/25000 (mem: 609.61 MiB)
+nnf           : 2/19000 (mem: 609.61 MiB)
+poseidon ext  : 20132/17000 (mem: 609.61 MiB)
+poseidon int  : 114743/96500 (mem: 609.61 MiB)
+overflow      : 0/0 (mem: 609.61 MiB)
+ (mem: 609.61 MiB)
+Total structured size: 260001 (mem: 609.61 MiB)
+[10:29:44.067] INFO: pxe:bb:native bb - WARNING: Structured trace overflow mechanism in use. Performance may be degraded! (mem: 609.61 MiB)
+Gate blocks summary: (actual gates / fixed capacity) (mem: 609.61 MiB)
+goblin ecc op : 4/1000 (mem: 609.61 MiB)
+busread       : 751/3000 (mem: 609.61 MiB)
+lookups       : 2/13000 (mem: 609.61 MiB)
+pub inputs    : 16/2000 (populated in decider pk constructor) (mem: 609.61 MiB)
+arithmetic    : 59000/59000 (mem: 609.61 MiB)
+delta range   : 4813/18000 (mem: 609.61 MiB)
+elliptic      : 2/6500
+[10:29:44.068] INFO: pxe:bb:native bb -  (mem: 609.61 MiB)
+memory        : 18051/25000 (mem: 609.61 MiB)
+nnf           : 2/19000 (mem: 609.61 MiB)
+poseidon ext  : 17000/17000 (mem: 609.61 MiB)
+poseidon int  : 96500/96500 (mem: 609.61 MiB)
+overflow      : 30284/30284 (mem: 609.61 MiB)
+ (mem: 609.61 MiB)
+Total structured size: 290285 (mem: 609.61 MiB)
+allocating polynomials object in proving key... (mem: 609.61 MiB)
+[10:29:46.158] INFO: pxe:bb:native bb - populating trace...
+[10:29:46.159] INFO: pxe:bb:native bb -  (mem: 
+[10:29:46.160] INFO: pxe:bb:native bb - 1356.29 MiB)
+[10:29:46.670] INFO: pxe:bb:native bb - time to construct proving key: 2648 ms. (mem: 
+[10:29:46.914] INFO: pxe:bb:native bb - 1411.91 MiB)
+[10:29:46.923] INFO: pxe:bb:native bb - downloading bn254 crs... (mem: 1412.54 MiB)
+[10:29:47.132] INFO: pxe:bb:native bb -   % Total    % Received % Xferd  Average Speed   Ti
+[10:29:47.133] INFO: pxe:bb:native bb - me    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:
+[10:29:47.134] INFO: pxe:bb:native bb - --:-- --:--:-- --:--:--     0
+  0     0    0     : pxe:bb:native bb - 
+[10:29:47.773] INFO: pxe:bb:native bb - 0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ 14 32.0M   14 4853k    0     0ive bb - 
+[10:29:48.726] INFO: pxe:bb:native bb -   3043k      0  0:00:10  0:00:01  0:00:09 3042k
+ 38 32.0M   38 12.4M    0     0  4920k      0  0
+[10:29:49.721] INFO: pxe:bb:native bb - :00:06  0:00:02  0:00:04 4920k
+ 60 32.0M   60 19.3M    0     0  5524k  
+[10:29:50.716] INFO: pxe:bb:native bb -      0  0:00:05  0:00:03  0:00:02 5524k
+ 81 32.0M   81 26.0M    0     0  5811k      
+[10:29:51.713] INFO: pxe:bb:native bb - 0  0:00:05  0:00:04  0:00:01 5810k
+[10:29:52.577] INFO: pxe:bb:native bb - 
+[10:29:52.579] INFO: pxe:bb:native bb - 100 32.0M  100 32.0M    0     0  5989k      0  0:00:05  0:00:05 --:--:-- 6784k
+[10:29:53.446] INFO: pxe:bb:native bb - Initialized BN254 CRS from memory with num points = 524289 (mem: 1477.35 MiB)
+[10:29:53.449] INFO: pxe:bb:native bb - computing pg proof... (mem: 1477.48 MiB)
+[10:29:53.450] INFO: pxe:bb:native bb - ProtogalaxyProver: circuit size mismatch - increasing virtual size of key 0 from 262144 to 524288 (mem: 1477.48 MiB)
+[10:29:53.453] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x294b393c4229aca28bec836a146da338411c64e030a2e0d321ddaccdf946337c (mem: 1477.48 MiB)
+[10:29:56.888] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 1477.48 MiB)
+[10:29:57.121] INFO: pxe:bb:native bb - perturbator round (mem: 1477.48 MiB)
+[10:29:58.001] INFO: pxe:bb:native bb - combiner quotient round (mem: 1477.48 MiB)
+[10:29:58.448] INFO: pxe:bb:native bb - folded (mem: 1477.48 MiB)
+pg proof constructed (mem: 1477.48 MiB)
+[10:29:58.450] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x294b393c4229aca28bec836a146da338411c64e030a2e0d321ddaccdf946337c (mem: 1477.48 MiB)
+[10:29:58.582] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_inner' (mem: 1477.48 MiB)
+ClientIVC: accumulating private_kernel_inner (mem: 1477.48 MiB)
+[10:29:58.728] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x0802c9a80e350964de37bb950fabd7635599b7d344856108beb02a57de67f52c (mem: 1477.48 MiB)
+[10:29:58.736] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 1477.48 MiB)
+expected vk hash: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 1477.48 MiB)
+[10:29:58.811] INFO: pxe:bb:native bb - PG accum hash from IO: 0x0802c9a80e350964de37bb950fabd7635599b7d344856108beb02a57de67f52c (mem: 1477.48 MiB)
+[10:29:58.824] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x294b393c4229aca28bec836a146da338411c64e030a2e0d321ddaccdf946337c (mem: 1477.48 MiB)
+expected vk hash: 0x294b393c4229aca28bec836a146da338411c64e030a2e0d321ddaccdf946337c (mem: 1477.48 MiB)
+[10:29:58.925] INFO: pxe:bb:native bb - kernel output pg hash: 0x1cc5aa3e928679542ecbe946303c22d224e66b388df025b81677f307c35b7b6d (mem: 1477.48 MiB)
+[10:29:58.926] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_inner' (mem: 1477.48 MiB)
+Constructing DeciderProvingKey (mem: 
+[10:29:58.927] INFO: pxe:bb:native bb - 1477.48 MiB)
+[10:29:58.946] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 1477.48 MiB)
+goblin ecc op : 818/1000 (mem: 1477.48 MiB)
+busread       : 2315/3000 (mem: 1477.48 MiB)
+lookups       : 2/13000 (mem: 1477.48 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 1477.48 MiB)
+arithmetic    : 29442/59000 (mem: 1477.48 MiB)
+delta range   : 4420/18000 (mem: 1477.48
+[10:29:58.947] INFO: pxe:bb:native bb -  MiB)
+elliptic      : 340/6500 (mem: 1477.48 MiB)
+memory        : 6392/25000 (mem: 1477.48 MiB)
+nnf           : 98/19000 (mem: 1477.48 MiB)
+poseidon ext  : 7752/17000 (mem: 1477.48 MiB)
+poseidon int  : 44177/96500 (mem: 1477.48 MiB)
+overflow      : 0/0 (mem: 1477.48 MiB)
+ (mem: 1477.48 MiB)
+Total structured size: 260001 (mem: 1477.48 MiB)
+allocating polynomials object in proving key... (mem: 1477.48 MiB)
+[10:29:58.985] INFO: pxe:bb:native bb - populating trace... (mem: 1477.48 MiB)
+[10:29:58.986] INFO: pxe:bb:native bb - 
+[10:29:59.069] INFO: pxe:bb:native bb - time to construct proving key: 142 ms. (mem: 1477.48 MiB)
+computing pg proof... (mem: 1477.48 MiB)
+[10:29:59.070] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x1cc5aa3e928679542ecbe946303c22d224e66b388df025b81677f307c35b7b6d (mem: 1477.48 MiB)
+[10:29:59.071] INFO: pxe:bb:native bb - ProtogalaxyProver: circuit size mismatch - increasing virtual size of key 1 from 262144 to 524288 (mem: 1477.48 MiB)
+[10:29:59.071] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+[10:30:00.336] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 1477.48 MiB)
+[10:30:00.808] INFO: pxe:bb:native bb - perturbator round (mem: 1477.48 MiB)
+[10:30:01.639] INFO: pxe:bb:native bb - combiner quotient round (mem: 1477.48 MiB)
+[10:30:02.050] INFO: pxe:bb:native bb - folded (mem: 1477.48 MiB)
+pg proof constructed (mem: 1477.48 MiB)
+[10:30:02.051] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x1cc5aa3e928679542ecbe946303c22d224e66b388df025b81677f307c35b7b6d (mem: 1477.48 MiB)
+[10:30:02.052] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+[10:30:02.142] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'ContractInstanceRegistry:publish_for_public_execution' (mem: 1477.48 MiB)
+[10:30:02.143] INFO: pxe:bb:native bb - ClientIVC: accumulating ContractInstanceRegistry:publish_for_public_execution (mem: 1477.48 MiB)
+[10:30:02.170] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'ContractInstanceRegistry:publish_for_public_execution' (mem: 1477.48 MiB)
+Constructing DeciderProvingKey (mem: 1477.48 MiB)
+[10:30:02.178] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 1477.48 MiB)
+goblin ecc op : 4/1000 (mem: 1477.48 MiB)
+busread       : 751/3000 (mem: 1477.48 MiB)
+lookups       : 2/13000 (mem: 1477.48 MiB)
+pub inputs    : 16/2000 (populated in decider pk constructor) (mem: 1477.48 MiB)
+arithmetic    : 3271/59000 (mem: 1477.48 MiB)
+delta range   : 1478/18000 (mem: 1477.48 MiB)
+elliptic      : 340/6500 (mem: 1477.48 MiB)
+memory        : 163/25000 (mem: 1477.48 MiB)
+nnf           : 2/19000 (mem: 1477.48 MiB)
+poseidon ext  : 162/17000 (mem: 1477.48 MiB)
+poseidon int  : 914/96500 (mem: 1477.48 MiB)
+overflow      : 0/0 (mem: 1477.48 MiB)
+[10:30:02.179] INFO: pxe:bb:native bb -  (mem: 1477.48 MiB)
+Total structured size: 260001 (mem: 1477.48 MiB)
+allocating polynomials object in proving key... (mem: 1477.48 MiB)
+[10:30:02.217] INFO: pxe:bb:native bb - populating trace...
+[10:30:02.218] INFO: pxe:bb:native bb -  (mem: 1477.48 MiB)
+[10:30:02.227] INFO: pxe:bb:native bb - time to construct proving key: 61 ms. (mem: 
+[10:30:02.228] INFO: pxe:bb:native bb - 1477.48 MiB)
+computing pg proof... (mem: 1477.48 MiB)
+ProtogalaxyProver: circuit size mismatch - increasing virtual size of key 1 from 262144 to 524288 (mem: 1477.48 MiB)
+[10:30:02.229] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x1b572317742e2773c8fde9840e411e3c1327782348f57bbb06b2033fc1de35fb (mem: 1477.48 MiB)
+[10:30:02.634] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 1477.48 MiB)
+[10:30:03.120] INFO: pxe:bb:native bb - perturbator round (mem: 
+[10:30:03.121] INFO: pxe:bb:native bb - 1477.48 MiB)
+[10:30:04.464] INFO: pxe:bb:native bb - combiner quotient round (mem: 1477.48 MiB)
+folded (mem: 1477.48 MiB)
+pg proof constructed (mem: 1477.48 MiB)
+vk hash in Oink verifier: 0x1b572317742e2773c8fde9840e411e3c1327782348f57bbb06b2033fc1de35fb (mem: 1477.48 MiB)
+ClientIvcLoad - loaded circuit 'private_kernel_inner' (mem: 1477.48 MiB)
+ClientIVC: accumulating private_kernel_inner (mem: 1477.48 MiB)
+[10:30:04.508] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x1cc5aa3e928679542ecbe946303c22d224e66b388df025b81677f307c35b7b6d (mem: 1477.48 MiB)
+[10:30:04.521] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+expected vk hash: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+[10:30:04.601] INFO: pxe:bb:native bb - PG accum hash from IO: 0x1cc5aa3e928679542ecbe946303c22d224e66b388df025b81677f307c35b7b6d (mem: 1477.48 MiB)
+[10:30:04.620] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x1b572317742e2773c8fde9840e411e3c1327782348f57bbb06b2033fc1de35fb (mem: 1477.48 MiB)
+expected vk hash: 0x1b572317742e2773c8fde9840e411e3c1327782348f57bbb06b2033fc1de35fb (mem: 1477.48 MiB)
+[10:30:04.725] INFO: pxe:bb:native bb - kernel output pg hash: 0x0e56098cd80ea13827e645a96648aa34963e9ba6ed01970ea495f8f5949a6706 (mem: 1477.48 MiB)
+ClientIvcAccumulate - accumulating circuit 'private_kernel_inner' (mem: 1477.48 MiB)
+Constructing DeciderProvingKey (mem: 1477.48 MiB)
+[10:30:04.755] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 1477.48 MiB)
+goblin ecc op : 818/1000 (mem: 1477.48 MiB)
+busread       : 2315/3000 (mem: 1477.48 MiB)
+lookups       : 2/13000 (mem: 1477.48 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 1477.48 MiB)
+arithmetic    : 29442/59000 (mem: 1477.48 MiB)
+delta range   : 4420/18000 (mem: 1477.48 MiB)
+elliptic      : 340/6500 (mem: 1477.48 MiB)
+memory        : 6392/25000 (mem: 1477.48 MiB)
+nnf           : 98/19000 (mem: 1477.48 MiB)
+poseidon ext  : 7752/17000 (mem: 1477.48 MiB)
+poseidon int  : 44177/96500 (mem: 1477.48 MiB)
+overflow      : 0/0 (mem: 1477.48 MiB)
+ (mem: 1477.48 MiB)
+Total structured size: 260001 (mem: 1477.48 MiB)
+allocating polynomials object in proving key... (mem: 1477.48 MiB)
+[10:30:04.787] INFO: pxe:bb:native bb - populating trace... (mem: 1477.48 MiB)
+[10:30:04.889] INFO: pxe:bb:native bb - time to construct proving key: 159 ms. (mem: 1477.48 MiB)
+computing pg proof... (mem: 1477.48 MiB)
+Accumulator hash in PG prover: 0x0e56098cd80ea13827e645a96648aa34963e9ba6ed01970ea495f8f5949a6706 (mem: 1477.48 MiB)
+ProtogalaxyProver: circuit size mismatch - increasing virtual size of key 1 from 262144 to 524288 (mem: 1477.48 MiB)
+vk hash in Oink prover: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+[10:30:06.297] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 1477.48 MiB)
+[10:30:06.968] INFO: pxe:bb:native bb - perturbator round (mem: 1477.48 MiB)
+[10:30:07.960] INFO: pxe:bb:native bb - combiner quotient round (mem: 1477.48 MiB)
+[10:30:08.314] INFO: pxe:bb:native bb - folded (mem: 1477.48 MiB)
+[10:30:08.315] INFO: pxe:bb:native bb - pg proof constructed (mem: 1477.48 MiB)
+[10:30:08.317] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x0e56098cd80ea13827e645a96648aa34963e9ba6ed01970ea495f8f5949a6706 (mem: 1477.48 MiB)
+[10:30:08.318] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 
+[10:30:08.318] INFO: pxe:bb:native bb - 1477.48 MiB)
+[10:30:08.421] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'ContractClassRegistry:assert_class_id_is_published' (mem: 1477.48 MiB)
+ClientIVC: accumulating ContractClassRegistry:assert_class_id_is_published (mem: 1477.48 MiB)
+[10:30:08.431] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'ContractClassRegistry:assert_class_id_is_published' (mem: 1477.48
+[10:30:08.432] INFO: pxe:bb:native bb -  MiB)
+[10:30:08.432] INFO: pxe:bb:native bb - 
+Constructing DeciderProvingKey (mem: 1477.48 MiB)
+[10:30:08.437] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 1477.48 MiB)
+goblin ecc op : 4/1000 (mem: 1477.48 MiB)
+busread       : 751/3000 (mem: 1477.48 MiB)
+lookups       : 2/13000 (mem: 1477.48 MiB)
+pub inputs    : 16/2000 (populated in decider pk constructor) (mem: 
+[10:30:08.438] INFO: pxe:bb:native bb - 1477.48 MiB)
+arithmetic    : 2966/59000 (mem: 1477.48 MiB)
+delta range   : 1427/18000 (mem: 1477.48 MiB)
+elliptic      : 2/6500 (mem: 1477.48 MiB)
+memory        : 2/25000 (mem: 1477.48 MiB)
+nnf           : 2/19000 (mem: 1477.48 MiB)
+poseidon ext  : 12/17000 (mem: 1477.48 MiB)
+poseidon int  : 59/96500 (mem: 1477.48 MiB)
+overflow      : 0/0 (mem: 1477.48 MiB)
+ (mem: 1477.48 MiB)
+Total structured size: 260001 (mem: 1477.48 MiB)
+allocating polynomials object in proving key... (mem: 1477.48 MiB)
+[10:30:08.470] INFO: pxe:bb:native bb - populating trace... (mem: 1477.48 MiB)
+[10:30:08.480] INFO: pxe:bb:native bb - time to construct proving key: 47 ms. (mem: 1477.48 MiB)
+computing pg proof... (mem: 1477.48 MiB)
+ProtogalaxyProver: circuit size mismatch - increasing virtual size of key 1 from 262144 to 524288 (mem: 1477.48 MiB)
+[10:30:08.481] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x29cd78f7914f3bf92a6c8ce77a0161ff2cbb3c643eaa4e44430e210f81d40f22 (mem: 1477.48 MiB)
+[10:30:08.828] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 1477.48 MiB)
+[10:30:09.310] INFO: pxe:bb:native bb - perturbator round (mem: 1477.48 MiB)
+[10:30:10.035] INFO: pxe:bb:native bb - combiner quotient round (mem: 1477.48 MiB)
+[10:30:10.382] INFO: pxe:bb:native bb - folded (mem: 1477.48 MiB)
+pg proof constructed (mem: 1477.48 MiB)
+[10:30:10.382] INFO: pxe:bb:native bb - 
+[10:30:10.383] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x29cd78f7914f3bf92a6c8ce77a0161ff2cbb3c643eaa4e44430e210f81d40f22 (mem: 1477.48 MiB)
+[10:30:10.497] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_inner' (mem: 1477.48 MiB)
+ClientIVC: accumulating private_kernel_inner (mem: 1477.48 MiB)
+[10:30:10.599] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x0e56098cd80ea13827e645a96648aa34963e9ba6ed01970ea495f8f5949a6706 (mem: 1477.48 MiB)
+[10:30:10.606] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+expected vk hash: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+[10:30:10.665] INFO: pxe:bb:native bb - PG accum hash from IO: 0x0e56098cd80ea13827e645a96648aa34963e9ba6ed01970ea495f8f5949a6706 (mem: 1477.48 MiB)
+[10:30:10.677] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x29cd78f7914f3bf92a6c8ce77a0161ff2cbb3c643eaa4e44430e210f81d40f22 (mem: 1477.48 MiB)
+expected vk hash: 0x29cd78f7914f3bf92a6c8ce77a0161ff2cbb3c643eaa4e44430e210f81d40f22 (mem: 1477.48 MiB)
+[10:30:10.755] INFO: pxe:bb:native bb - kernel output pg hash: 0x101784d4a5050500987dbfedb52b764215767207b5a9724f4208a5232eb5b79a (mem: 1477.48 MiB)
+[10:30:10.756] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_inner' (mem: 1477.48 MiB)
+Constructing DeciderProvingKey (mem: 1477.48 MiB)
+[10:30:10.776] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 1477.48 MiB)
+goblin ecc op : 818/1000 (mem: 1477.48 MiB)
+busread       : 2315/3000 (mem: 1477.48 MiB)
+lookups       : 2/13000 (mem: 1477.48 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 1477.48 MiB)
+arithmetic    : 29442/59000 (mem: 1477.48 MiB)
+delta range   : 4420/18000 (mem: 1477.48 MiB)
+elliptic      : 340/6500 (mem: 1477.48 MiB)
+memory        : 6392/25000 (mem: 1477.48 MiB)
+nnf           : 98/19000 (mem: 1477.48 MiB)
+poseidon ext  : 7752/17000 (mem: 1477.48 MiB)
+poseidon int  : 44177/96500 (mem: 1477.48 MiB)
+overflow      : 0/0 (mem: 1477.48 MiB)
+ (mem: 1477.48 MiB)
+[10:30:10.777] INFO: pxe:bb:native bb - 
+Total structured size: 260001 (mem: 1477.48 MiB)
+allocating polynomials object in proving key... (mem: 1477.48 MiB)
+[10:30:10.802] INFO: pxe:bb:native bb - populating trace... (mem: 1477.48 MiB)
+[10:30:10.862] INFO: pxe:bb:native bb - time to construct proving key: 105 ms. (mem: 1477.48 MiB)
+computing pg proof... (mem: 1477.48 MiB)
+[10:30:10.863] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x101784d4a5050500987dbfedb52b764215767207b5a9724f4208a5232eb5b79a (mem: 1477.48 MiB)
+ProtogalaxyProver: circuit size mismatch - increasing virtual size of key 1 from 262144 to 524288 (mem: 1477.48 MiB)
+[10:30:10.864] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+[10:30:12.159] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 1477.48 MiB)
+[10:30:12.568] INFO: pxe:bb:native bb - perturbator round (mem: 1477.48 MiB)
+[10:30:13.121] INFO: pxe:bb:native bb - combiner quotient round (mem: 1477.48 MiB)
+[10:30:13.396] INFO: pxe:bb:native bb - folded (mem: 1477.48 MiB)
+pg proof constructed (mem: 1477.48
+[10:30:13.396] INFO: pxe:bb:native bb -  MiB)
+[10:30:13.398] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x101784d4a5050500987dbfedb52b764215767207b5a9724f4208a5232eb5b79a (mem: 1477.48 MiB)
+[10:30:13.398] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+[10:30:13.548] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_reset' (mem: 1477.48 MiB)
+ClientIVC: accumulating private_kernel_reset (mem: 1477.48 MiB)
+[10:30:13.707] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x101784d4a5050500987dbfedb52b764215767207b5a9724f4208a5232eb5b79a (mem: 1477.48 MiB)
+[10:30:13.713] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+expected vk hash: 0x2939840276b0b8086c447fcd6fb023e871ee7e03939cf0a7d413b688333df440 (mem: 1477.48 MiB)
+[10:30:13.762] INFO: pxe:bb:native bb - PG accum hash from IO: 0x101784d4a5050500987dbfedb52b764215767207b5a9724f4208a5232eb5b79a (mem: 1477.48 MiB)
+[10:30:13.783] INFO: pxe:bb:native bb - kernel output pg hash: 0x26abf726abd18a71887fe6a84e10fad0d0a326ac859e64d828a7040d4262dc10 (mem: 1477.48 MiB)
+[10:30:13.783] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_reset' (mem: 1477.48 MiB)
+Constructing DeciderProvingKey (mem: 1477.48 MiB)
+[10:30:13.806] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 1477.48 MiB)
+goblin ecc op : 406/1000 (mem: 1477.48 MiB)
+busread       : 2388/3000 (mem: 1477.48 MiB)
+lookups       : 2/13000 (mem: 1477.48 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 1477.48 MiB)
+arithmetic    : 33913/59000 (mem: 1477.48 MiB)
+delta range   : 4067/18000 (mem: 1477.48 MiB)
+[10:30:13.807] INFO: pxe:bb:native bb - elliptic      : 1274/6500 (mem: 1477.48 MiB)
+memory        : 12375/25000 (mem: 1477.48 MiB)
+nnf           : 98/19000 (mem: 1477.48 MiB)
+poseidon ext  : 8182/17000 (mem: 1477.48 MiB)
+poseidon int  : 46628/96500 (mem: 1477.48 MiB)
+overflow      : 0/0 (mem: 1477.48 MiB)
+ (mem: 1477.48 MiB)
+Total structured size: 260001 (mem: 1477.48 MiB)
+allocating polynomials object in proving key... (mem: 1477.48 MiB)
+[10:30:13.833] INFO: pxe:bb:native bb - populating trace... (mem: 1477.48 MiB)
+[10:30:13.888] INFO: pxe:bb:native bb - time to construct proving key: 104 ms. (mem: 1477.48 MiB)
+computing pg proof... (mem: 1477.48 MiB)
+[10:30:13.889] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x26abf726abd18a71887fe6a84e10fad0d0a326ac859e64d828a7040d4262dc10 (mem: 1477.48 MiB)
+ProtogalaxyProver: circuit size mismatch - increasing virtual size of key 1 from 262144 to 524288 (mem: 1477.48 MiB)
+[10:30:13.890] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 1477.48 MiB)
+[10:30:14.824] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 1477.48 MiB)
+[10:30:15.199] INFO: pxe:bb:native bb - perturbator round (mem: 1477.48 MiB)
+[10:30:15.744] INFO: pxe:bb:native bb - combiner quotient round (mem: 1477.48 MiB)
+[10:30:16.002] INFO: pxe:bb:native bb - folded (mem: 1477.48 MiB)
+pg proof constructed (mem: 1477.48 MiB)
+[10:30:16.003] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x26abf726abd18a71887fe6a84e10fad0d0a326ac859e64d828a7040d4262dc10 (mem: 1477.48 MiB)
+[10:30:16.004] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 1477.48 MiB)
+[10:30:16.178] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_tail' (mem: 1477.48 MiB)
+ClientIVC: accumulating private_kernel_tail (mem: 1477.48 MiB)
+[10:30:16.290] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x26abf726abd18a71887fe6a84e10fad0d0a326ac859e64d828a7040d4262dc10 (mem: 1477.48 MiB)
+[10:30:16.296] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 1477.48 MiB)
+expected vk hash: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 1477.48 MiB)
+[10:30:16.344] INFO: pxe:bb:native bb - PG accum hash from IO: 0x26abf726abd18a71887fe6a84e10fad0d0a326ac859e64d828a7040d4262dc10 (mem: 1477.48 MiB)
+[10:30:16.361] INFO: pxe:bb:native bb - kernel output pg hash: 0x22fb34846774e1fb9ed3aef3d8322e3fb2c92f3c48f231d441a9da615682ce53 (mem: 1477.48 MiB)
+[10:30:16.362] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_tail' (mem: 1477.48 MiB)
+Constructing DeciderProvingKey (mem: 1477.48 MiB)
+[10:30:16.384] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 1477.48 MiB)
+goblin ecc op : 408/1000 (mem: 1477.48 MiB)
+busread       : 2001/3000 (mem: 1477.48 MiB)
+lookups       : 2/13000 (mem: 1477.48 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 1477.48 MiB)
+arithmetic    : 39358/59000 (mem: 1477.48 MiB)
+delta range   : 4051/18000 (mem: 1477.48 MiB)
+elliptic      : 2/6500 (mem: 1477.48 MiB)
+memory        : 11792/25000 (mem: 1477.48 MiB)
+nnf           : 98/19000 (mem: 1477.48 MiB)
+poseidon ext  : 4622/17000 (mem: 1477.48 MiB)
+poseidon int  : 26336/96500 (mem: 1477.48 MiB)
+[10:30:16.385] INFO: pxe:bb:native bb - overflow      : 0/0 (mem: 1477.48 MiB)
+ (mem: 1477.48 MiB)
+Total structured size: 260001 (mem: 1477.48 MiB)
+allocating polynomials object in proving key... (mem: 1477.48 MiB)
+[10:30:16.411] INFO: pxe:bb:native bb - populating trace... (mem: 1477.48 MiB)
+[10:30:16.461] INFO: pxe:bb:native bb - time to construct proving key: 98 ms. (mem: 1477.48 MiB)
+computing pg proof... (mem: 1477.48 MiB)
+[10:30:16.462] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x22fb34846774e1fb9ed3aef3d8322e3fb2c92f3c48f231d441a9da615682ce53 (mem: 1477.48 MiB)
+ProtogalaxyProver: circuit size mismatch - increasing virtual size of key 1 from 262144 to 524288 (mem: 1477.48 MiB)
+[10:30:16.463] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x1ae33e4687a8e7bd6d23d8fb4a6ea36ad3fc3309d507d725397d743edfe46fde (mem: 1477.48 MiB)
+[10:30:17.217] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 1477.48 MiB)
+[10:30:17.637] INFO: pxe:bb:native bb - perturbator round (mem: 1477.48 MiB)
+[10:30:18.203] INFO: pxe:bb:native bb - combiner quotient round (mem: 1477.48 MiB)
+[10:30:18.472] INFO: pxe:bb:native bb - folded (mem: 1477.48 MiB)
+pg proof constructed (mem: 1477.48 MiB)
+[10:30:18.472] INFO: pxe:bb:native bb - prove decider... (mem: 1477.48 MiB)
+[10:30:19.749] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 1852.32 MiB)
+[10:30:20.882] INFO: pxe:bb:native bb - completed 19 rounds of sumcheck (mem: 1852.32 MiB)
+[10:30:24.226] INFO: pxe:bb:native bb - executed multivariate-to-univariate reduction (mem: 1852.32 MiB)
+[10:30:25.118] INFO: pxe:bb:native bb - computed opening proof (mem: 1852.32 MiB)
+finished decider proving. (mem: 1852.32 MiB)
+[10:30:25.120] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x22fb34846774e1fb9ed3aef3d8322e3fb2c92f3c48f231d441a9da615682ce53 (mem: 1852.32 MiB)
+[10:30:25.121] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x1ae33e4687a8e7bd6d23d8fb4a6ea36ad3fc3309d507d725397d743edfe46fde (mem: 1852.32 MiB)
+[10:30:25.247] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'hiding_kernel' (mem: 1852.32 MiB)
+ClientIVC: accumulating hiding_kernel (mem: 
+[10:30:25.247] INFO: pxe:bb:native bb - 1852.32 MiB)
+[10:30:25.284] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x22fb34846774e1fb9ed3aef3d8322e3fb2c92f3c48f231d441a9da615682ce53 (mem: 1852.32 MiB)
+[10:30:25.291] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x1ae33e4687a8e7bd6d23d8fb4a6ea36ad3fc3309d507d725397d743edfe46fde (mem: 1852.32 MiB)
+expected vk hash: 0x1ae33e4687a8e7bd6d23d8fb4a6ea36ad3fc3309d507d725397d743edfe46fde (mem: 1852.32 MiB)
+[10:30:25.380] INFO: pxe:bb:native bb - PG accum hash from IO: 0x22fb34846774e1fb9ed3aef3d8322e3fb2c92f3c48f231d441a9da615682ce53 (mem: 1852.32 MiB)
+[10:30:25.388] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'hiding_kernel' (mem: 1852.32 MiB)
+Constructing DeciderProvingKey (mem: 1852.32 MiB)
+[10:30:25.395] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 1852.32 MiB)
+[10:30:25.395] INFO: pxe:bb:native bb - goblin ecc op : 586/1000 (mem: 1852.32 MiB)
+busread       : 3/3000 (mem: 1852.32 MiB)
+lookups       : 2/13000 (mem: 1852.32 MiB)
+pub inputs    : 1874/2000 (populated in decider pk constructor) (mem: 1852.32 MiB)
+arithmetic    : 13440/59000 (mem: 1852.32 MiB)
+delta range   : 2715/18000 (mem: 1852.32 MiB)
+elliptic      : 2/6500 (mem: 1852.32 MiB)
+memory        : 2/25000 (mem: 1852.32 MiB)
+nnf           : 74/19000 (mem: 1852.32 MiB)
+poseidon ext  : 4912/17000 (mem: 1852.32 MiB)
+poseidon int  : 27989/96500 (mem: 1852.32 MiB)
+overflow      : 0/0 (mem: 1852.32 MiB)
+ (mem: 1852.32 MiB)
+Total structured size: 260001 (mem: 1852.32 MiB)
+allocating polynomials object in proving key... (mem: 1852.32 MiB)
+[10:30:25.423] INFO: pxe:bb:native bb - populating trace... (mem: 
+[10:30:25.423] INFO: pxe:bb:native bb - 1852.32 MiB)
+[10:30:25.454] INFO: pxe:bb:native bb - time to construct proving key: 65 ms. (mem: 1852.32 MiB)
+Constructing DeciderProvingKey (mem: 1852.32 MiB)
+[10:30:25.454] INFO: pxe:bb:native bb - allocating polynomials object in proving key... (mem: 1852.32 MiB)
+[10:30:25.469] INFO: pxe:bb:native bb - populating trace... (mem: 1852.32 MiB)
+[10:30:25.502] INFO: pxe:bb:native bb - time to construct proving key: 47 ms. (mem: 1852.32 MiB)
+[10:30:25.789] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x08f9ce86791f5ed707161591c72ea898dc992dee488e9bcf82d207e241a4fa0d (mem: 1852.32 MiB)
+[10:30:26.245] INFO: pxe:bb:native bb - created oink proof (mem: 1852.32 MiB)
+[10:30:26.287] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 1852.32 MiB)
+[10:30:26.554] INFO: pxe:bb:native bb - completed 16 rounds of sumcheck (mem: 1852.32 MiB)
+[10:30:27.200] INFO: pxe:bb:native bb - executed multivariate-to-univariate reduction (mem: 1852.32 MiB)
+[10:30:27.355] INFO: pxe:bb:native bb - computed opening proof (mem: 1852.32 MiB)
+finished decider proving.
+[10:30:27.356] INFO: pxe:bb:native bb -  (mem: 1852.32 MiB)
+[10:30:27.356] INFO: pxe:bb:native bb - ClientIvcProve - generating proof for 11 accumulated circuits (mem: 1852.32 MiB)
+[10:30:27.488] INFO: pxe:bb:native bb - Constructing a Goblin proof with num ultra ops = 3934 (mem: 1852.32 MiB)
+[10:30:27.489] INFO: pxe:bb:native bb - prove eccvm... (mem: 1852.32 MiB)
+[10:30:27.797] INFO: pxe:bb:native bb - using cached grumpkin crs with num points 65537 at: "/home/user/.bb-crs/grumpkin_g1.flat.dat" (mem: 1852.32 MiB)
+[10:30:27.810] INFO: pxe:bb:native bb - Initialized Grumpkin prover CRS from memory with num points = 65537 (mem: 1852.32 MiB)
+[10:30:27.810] INFO: pxe:bb:native bb - ECCVM vk hash in prover: 0x1ae0b9a22be9cf32b1a138fac0062ca8304f7a393c1664e83d3e0c57e2b4873e (mem: 1852.32 MiB)
+[10:30:29.793] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 1852.32 MiB)
+[10:30:31.708] INFO: pxe:bb:native bb - completed 16 rounds of sumcheck (mem: 1852.32 MiB)
+[10:30:34.598] INFO: pxe:bb:native bb - finished eccvm proving. (mem: 1852.32 MiB)
+prove translator... (mem: 1852.32 MiB)
+[10:30:34.758] INFO: pxe:bb:native bb - Translator vk hash in prover: 0x06d623dfe5d6f6826735a9adfa4fd602146e0ccca2410e39e836b65b355fdeaa (mem: 1852.32 MiB)
+[10:30:36.153] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 1852.32 MiB)
+[10:30:38.947] INFO: pxe:bb:native bb - completed 18 rounds of sumcheck (mem: 1852.32 MiB)
+[10:30:42.228] INFO: pxe:bb:native bb - computed opening proof (mem: 1852.32 MiB)
+[10:30:42.229] INFO: pxe:bb:native bb - finished translator proving. (mem: 1852.32 MiB)
+ClientIvcProve - verifying the generated proof as a sanity check (mem: 1852.32 MiB)
+[10:30:42.230] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x08f9ce86791f5ed707161591c72ea898dc992dee488e9bcf82d207e241a4fa0d (mem: 1852.32 MiB)
+[10:30:42.272] INFO: pxe:bb:native bb - sumcheck_verified: 1 (mem: 1852.32 MiB)
+libra_evals_verified: 1 (mem: 1852.32 MiB)
+pairing_check_verified: 1 (mem: 1852.32 MiB)
+Mega verified: 1 (mem: 1852.32 MiB)
+[10:30:42.275] INFO: pxe:bb:native bb - ECCVM vk hash in verifier: 0x1ae0b9a22be9cf32b1a138fac0062ca8304f7a393c1664e83d3e0c57e2b4873e (mem: 1852.32 MiB)
+[10:30:42.464] INFO: pxe:bb:native bb - eccvm sumcheck verified?: 1 (mem: 1852.32 MiB)
+batch opening verified?: 1 (mem: 1852.32 MiB)
+eccvm consistency check verified?: 1 (mem: 1852.32 MiB)
+translation masking consistency checked?: 1 (mem: 1852.32 MiB)
+[10:30:42.465] INFO: pxe:bb:native bb - Translator vk hash in verifier: 0x06d623dfe5d6f6826735a9adfa4fd602146e0ccca2410e39e836b65b355fdeaa (mem: 1852.32 MiB)
+[10:30:42.490] INFO: pxe:bb:native bb - merge verified?: 1 (mem: 1852.32 MiB)
+eccvm verified?: 1 (mem: 1852.32 MiB)
+accumulator construction_verified?: 1 (mem: 1852.32 MiB)
+translation verified?: 1 (mem: 1852.32 MiB)
+[10:30:42.490] INFO: pxe:bb:native bb - consistency verified?: 1 (mem: 1852.32 MiB)
+Goblin verified: 1 (mem: 1852.32 MiB)
+[10:30:42.490] INFO: pxe:bb:native bb - writing ClientIVC proof in directory "/home/user/.aztec/wallet/bb/tmp-scnjSR" (mem: 1852.32 MiB)
+[10:30:42.744] INFO: pxe:bb:native Generated IVC proof {"duration":62656.89775,"eventName":"circuit-proving"}
+[10:30:43.406] INFO: pxe:service Sent transaction 0x1362fc34a4d520d46cfd5d8bc8f5a71612f0bf50399c2d6151feca8d9f99f217
+Contract deployed at 0x16d3020c1018bc807be36a4d657351aaf774cb7c92e0d6bcd3058e6a98aba42f
+Contract partial address 0x0d9e885db78ea65ebe52e4fcec49d9f715e4ac6773b213dfd98f5cf10bb80112
+Contract init hash 0x1b386d6cd70c2fceeed6551dbbd7396725643db5e2d0a1b930a95b10197b1a7e
+Deployment tx hash: 0x1362fc34a4d520d46cfd5d8bc8f5a71612f0bf50399c2d6151feca8d9f99f217
+Deployment salt: 0x2cf56e71c2d093f1ab2d765a43317bd827d1cf6b8ca5ee95fc27dd19f428813b
+Deployment fee: 57348610
+Contract stored in database with alias last
+
+
+user@pc:~/zk-coprocessor-bridge/evm-contracts$ forge create --broadcast\                                                          
+  --rpc-url $RPC_URL \                                                
+  --private-key $PRIVATE_KEY \
+  src/SandboxPortal.sol:SandboxPortal \
+  --constructor-args $INBOX $AZTEC_CONTRACT $ROLLUP
+[⠊] Compiling...
+No files changed, compilation skipped
+Deployer: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+Deployed to: 0x8464135c8F25Da09e49BC8782676a84730C318bC
+Transaction hash: 0x4f04892ba002a1e41e7f39fb28bd2a23ced0e1ed6afa7c7d105ebda620571224
+
+
+user@pc:~/zk-coprocessor-bridge/aztec-contracts/contracts/zk-coprocessor-contracts$ aztec-wallet send set_portal_once \
+  -ca $AZTEC_CONTRACT \
+  --args "$PORTAL_32B" \
+  --from accounts:test0 \
+  --payment method=fee_juice,feePayer=test0
+[10:46:42.606] INFO: wallet Using local PXE service
+[10:46:42.608] INFO: kv-store:lmdb-v2 Starting data store with maxReaders 16
+[10:46:42.667] INFO: pxe:data:lmdb Creating pxe_data data store at directory /home/user/.aztec/wallet/pxe/pxe_data with map size 134217728 KB (LMDB v2)
+[10:46:42.671] INFO: pxe:data:lmdb Starting data store with maxReaders 16
+Using Fee Juice for fee payment
+[10:46:43.290] INFO: pxe:service Started PXE connected to chain 31337 version 1714697526
+[10:46:43.372] INFO: wallet Using wallet with address 0x2735b31fb4c6dc2f407bc468669a7edb40a580626f06c4c4e1bfacbae4e9d24a
+[10:46:43.455] INFO: pxe:service Simulating transaction execution request to 0x27e740b2 at 0x2735b31fb4c6dc2f407bc468669a7edb40a580626f06c4c4e1bfacbae4e9d24a {"origin":"0x2735b31fb4c6dc2f407bc468669a7edb40a580626f06c4c4e1bfacbae4e9d24a","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000007a69","version":"0x0000000000000000000000000000000000000000000000000000000066343536","authWitnesses":["0x15d5ef5e51cac2689028f52cfe974e83b4178b5e6cfbe576ad29efe38bc34820"]}
+Estimated gas usage:    da=4506,l2=42237,teardownDA=0,teardownL2=0
+Maximum total tx fee:   43926480
+[10:46:45.074] INFO: pxe:service Simulation completed for 0x164efd1d08696c2f81a3954ff1c4d332e5ba45d6d822237e92576c8f443cc2f4 in 1618.9295280000001ms {"txHash":"0x164efd1d08696c2f81a3954ff1c4d332e5ba45d6d822237e92576c8f443cc2f4","origin":"0x2735b31fb4c6dc2f407bc468669a7edb40a580626f06c4c4e1bfacbae4e9d24a","functionSelector":"0x27e740b2","simulatePublic":true,"chainId":"0x0000000000000000000000000000000000000000000000000000000000007a69","version":"0x0000000000000000000000000000000000000000000000000000000066343536","authWitnesses":["0x15d5ef5e51cac2689028f52cfe974e83b4178b5e6cfbe576ad29efe38bc34820"],"gasUsed":{"totalGas":{"daGas":4096,"l2Gas":38397},"teardownGas":{"daGas":0,"l2Gas":0},"publicGas":{"daGas":2560,"l2Gas":14865},"billedGas":{"daGas":4096,"l2Gas":38397}},"revertCode":0}
+[10:46:46.647] INFO: pxe:private-kernel-execution-prover Private kernel witness generation took 1077.886869ms
+[10:46:46.648] INFO: pxe:bb:native Generating Client IVC proof
+[10:46:47.017] INFO: pxe:bb:native inputsPath /home/user/.aztec/wallet/bb/tmp-wQX76i/ivc-inputs.msgpack
+[10:46:47.017] INFO: pxe:bb:native bb - BB concurrency: undefined
+[10:46:47.017] INFO: pxe:bb:native bb - Executing BB with: /usr/src/barretenberg/cpp/build/bin/bb prove -o /home/user/.aztec/wallet/bb/tmp-wQX76i --ivc_inputs_path /home/user/.aztec/wallet/bb/tmp-wQX76i/ivc-inputs.msgpack -v --scheme client_ivc
+[10:46:47.080] INFO: pxe:bb:native bb - bb command: prove
+[10:46:47.080] INFO: pxe:bb:native bb -  (mem: 111.44 MiB)
+Scheme is: client_ivc, num threads: 8 (mem: 111.44 MiB)
+  --scheme: client_ivc (mem: 111.44 MiB)
+[10:46:47.080] INFO: pxe:bb:native bb -   --output_path: /home/user/.aztec/wallet/bb/tmp-wQX76i (mem: 111.44 MiB)
+  --ivc_inputs_path: /home/user/.aztec/wallet/bb/tmp-wQX76i/ivc-inputs.msgpack (mem: 111.44 MiB)
+  --verbose: true (mem: 111.44 MiB)
+[10:46:47.133] INFO: pxe:bb:native bb - BN254 commitment key size: 262144 (mem: 111.44 MiB)
+[10:46:47.133] INFO: pxe:bb:native bb - using cached bn254 crs with num points 524289 at "/home/user/.bb-crs/bn254_g1.dat" (mem: 111.44 MiB)
+[10:46:47.233] INFO: pxe:bb:native bb - Initialized BN254 CRS from memory with num points = 262145 (mem: 111.44 MiB)
+[10:46:47.234] INFO: pxe:bb:native bb - ClientIVC: starting with 5 circuits (mem: 111.44 MiB)
+[10:46:47.249] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'SchnorrAccount:entrypoint' (mem: 111.44 MiB)
+ClientIVC: accumulating SchnorrAccount:entrypoint (mem: 111.44 MiB)
+[10:46:47.356] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'SchnorrAccount:entrypoint' (mem: 111.44 MiB)
+[10:46:47.357] INFO: pxe:bb:native bb - Constructing DeciderProvingKey (mem: 111.44 MiB)
+[10:46:47.371] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 111.44 MiB)
+goblin ecc op : 4/1000 (mem: 111.44 MiB)
+busread       : 751/3000 (mem: 111.44 MiB)
+lookups       : 2076/13000 (mem: 111.44 MiB)
+pub inputs    : 16/2000 (populated in decider pk constructor) (mem: 111.44 MiB)
+arithmetic    : 8823/59000 (mem: 111.44 MiB)
+delta range   : 2635/18000 (mem: 111.44 MiB)
+elliptic      : 794/6500 (mem: 111.44 MiB)
+memory        : 4504/25000 (mem: 111.44 MiB)
+nnf           : 2/19000 (mem: 111.44 MiB)
+[10:46:47.371] INFO: pxe:bb:native bb - poseidon ext  : 312/17000 (mem: 111.44 MiB)
+poseidon int  : 1769/96500 (mem: 111.44 MiB)
+overflow      : 0/0 (mem: 111.44 MiB)
+ (mem: 111.44 MiB)
+Total structured size: 260001 (mem: 111.44 MiB)
+allocating polynomials object in proving key... (mem: 111.44 MiB)
+[10:46:47.733] INFO: pxe:bb:native bb - populating trace... (mem: 310.57 MiB)
+[10:46:47.875] INFO: pxe:bb:native bb - time to construct proving key: 517 ms. (mem: 327.44 MiB)
+[10:46:47.875] INFO: pxe:bb:native bb - Accumulating first app circuit with OINK (mem: 327.44 MiB)
+[10:46:47.875] INFO: pxe:bb:native bb - computing oink proof... (mem: 327.44 MiB)
+[10:46:47.878] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x18c8087958e565d75671a76d7b98dedb7f646c3e0b1b1d2d5b649264c36a573c (mem: 327.57 MiB)
+[10:46:48.361] INFO: pxe:bb:native bb - oink proof constructed (mem: 338.82 MiB)
+[10:46:48.362] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x18c8087958e565d75671a76d7b98dedb7f646c3e0b1b1d2d5b649264c36a573c (mem: 338.82 MiB)
+[10:46:48.459] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_init' (mem: 340.44 MiB)
+ClientIVC: accumulating private_kernel_init (mem: 340.44 MiB)
+[10:46:48.593] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x18c8087958e565d75671a76d7b98dedb7f646c3e0b1b1d2d5b649264c36a573c (mem: 341.82 MiB)
+expected vk hash: 0x18c8087958e565d75671a76d7b98dedb7f646c3e0b1b1d2d5b649264c36a573c (mem: 341.82 MiB)
+[10:46:48.641] INFO: pxe:bb:native bb - kernel output pg hash: 0x02e4ef12baae86a6db042987bce51e1df1b008c0835753568917a66f57f7f710 (mem: 342.19 MiB)
+[10:46:48.642] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_init' (mem: 342.19 MiB)
+Constructing DeciderProvingKey (mem: 
+[10:46:48.642] INFO: pxe:bb:native bb - 342.19 MiB)
+[10:46:48.652] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 342.19 MiB)
+goblin ecc op : 64/1000 (mem: 342.19 MiB)
+busread       : 2243/3000 (mem: 342.19 MiB)
+lookups       : 2/13000 (mem: 342.19 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 342.19 MiB)
+[10:46:48.652] INFO: pxe:bb:native bb - 
+arithmetic    : 14420/59000 (mem: 342.19 MiB)
+delta range   : 3100/18000 (mem: 342.19 MiB)
+elliptic      : 340/6500 (mem: 342.19 MiB)
+memory        : 1013/25000 (mem: 342.19 MiB)
+nnf           : 98/19000 (mem: 342.19 MiB)
+poseidon ext  : 2972/17000 (mem: 342.19 MiB)
+poseidon int  : 16931/96500 (mem: 342.19 MiB)
+overflow      : 0/0 (mem: 342.19 MiB)
+ (mem: 342.19 MiB)
+Total structured size: 260001 (mem: 342.19 MiB)
+allocating polynomials object in proving key... (mem: 342.19 MiB)
+[10:46:49.534] INFO: pxe:bb:native bb - populating trace... (mem: 552.07 MiB)
+[10:46:49.704] INFO: pxe:bb:native bb - time to construct proving key: 1061 ms. (mem: 570.69 MiB)
+computing pg proof... (mem: 570.69 MiB)
+[10:46:49.707] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x02e4ef12baae86a6db042987bce51e1df1b008c0835753568917a66f57f7f710 (mem: 570.69 MiB)
+[10:46:49.709] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 570.69 MiB)
+[10:46:50.388] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 570.82 MiB)
+[10:46:50.389] INFO: pxe:bb:native bb - perturbator round (mem: 570.82 MiB)
+[10:46:50.738] INFO: pxe:bb:native bb - combiner quotient round (mem: 571.32 MiB)
+[10:46:51.040] INFO: pxe:bb:native bb - folded (mem: 571.32 MiB)
+pg proof constructed (mem: 571.32 MiB)
+[10:46:51.042] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x02e4ef12baae86a6db042987bce51e1df1b008c0835753568917a66f57f7f710 (mem: 571.32 MiB)
+[10:46:51.043] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 571.32 MiB)
+[10:46:51.236] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_reset' (mem: 571.32 MiB)
+ClientIVC: accumulating private_kernel_reset (mem: 571.32 MiB)
+[10:46:51.575] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x02e4ef12baae86a6db042987bce51e1df1b008c0835753568917a66f57f7f710 (mem: 571.32 MiB)
+[10:46:51.587] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 571.32 MiB)
+expected vk hash: 0x16706cfea14b02b037c371e70fa1a27c45f440c92462175fb103e500a9325b9f (mem: 571.32 MiB)
+[10:46:51.658] INFO: pxe:bb:native bb - PG accum hash from IO: 0x02e4ef12baae86a6db042987bce51e1df1b008c0835753568917a66f57f7f710 (mem: 571.32 MiB)
+[10:46:51.695] INFO: pxe:bb:native bb - kernel output pg hash: 0x10536904e7d0354b90acc5b74b9d2728481d2800655648c496442e739c1dfe3b (mem: 571.32 MiB)
+[10:46:51.696] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_reset' (mem: 571.32 MiB)
+Constructing DeciderProvingKey (mem: 571.32 MiB)
+[10:46:51.732] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 571.32 MiB)
+goblin ecc op : 406/1000 (mem: 571.32 MiB)
+busread       : 2388/3000 (mem: 571.32 MiB)
+lookups       : 2/13000 (mem: 571.32 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 571.32 MiB)
+arithmetic    : 33913/59000 (mem: 571.32 MiB)
+delta range   : 4067/18000 (mem: 571.32 MiB)
+elliptic      : 1274/6500 (mem: 571.32 MiB)
+[10:46:51.732] INFO: pxe:bb:native bb - memory        : 12375/25000 (mem: 571.32 MiB)
+nnf           : 98/19000 (mem: 571.32 MiB)
+poseidon ext  : 8182/17000 (mem: 571.32 MiB)
+poseidon int  : 46628/96500 (mem: 571.32 MiB)
+overflow      : 0/0 (mem: 571.32 MiB)
+ (mem: 571.32 MiB)
+Total structured size: 260001 (mem: 571.32 MiB)
+allocating polynomials object in proving key... (mem: 571.32 MiB)
+[10:46:51.874] INFO: pxe:bb:native bb - populating trace... (mem: 594.51 MiB)
+[10:46:52.296] INFO: pxe:bb:native bb - time to construct proving key: 599 ms. (mem: 621.01 MiB)
+computing pg proof... (mem: 621.01 MiB)
+[10:46:52.298] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x10536904e7d0354b90acc5b74b9d2728481d2800655648c496442e739c1dfe3b (mem: 621.01 MiB)
+[10:46:52.300] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 621.01 MiB)
+[10:46:53.560] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 623.01 MiB)
+[10:46:54.059] INFO: pxe:bb:native bb - perturbator round (mem: 645.38 MiB)
+[10:46:54.378] INFO: pxe:bb:native bb - combiner quotient round (mem: 645.38 MiB)
+[10:46:54.596] INFO: pxe:bb:native bb - folded (mem: 645.38 MiB)
+pg proof constructed (mem: 645.38
+[10:46:54.596] INFO: pxe:bb:native bb -  MiB)
+[10:46:54.598] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x10536904e7d0354b90acc5b74b9d2728481d2800655648c496442e739c1dfe3b (mem: 645.38 MiB)
+[10:46:54.599] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 645.38 MiB)
+[10:46:54.600] INFO: pxe:bb:native bb - 
+[10:46:54.752] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'private_kernel_tail' (mem: 645.38 MiB)
+ClientIVC: accumulating private_kernel_tail (mem: 645.38 MiB)
+[10:46:54.875] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x10536904e7d0354b90acc5b74b9d2728481d2800655648c496442e739c1dfe3b (mem: 645.38 MiB)
+[10:46:54.882] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 645.38 MiB)
+expected vk hash: 0x13cfa18b87c7a3b19ff078e29b864866698ce7a52f1b9d973467a42da3e6565b (mem: 645.38 MiB)
+[10:46:54.939] INFO: pxe:bb:native bb - PG accum hash from IO: 0x10536904e7d0354b90acc5b74b9d2728481d2800655648c496442e739c1dfe3b (mem: 645.38 MiB)
+[10:46:54.960] INFO: pxe:bb:native bb - kernel output pg hash: 0x0a05683672cd75c6b5d4805b4f7ea687f27b7f700e4741dfc304f5f410829047 (mem: 645.38 MiB)
+[10:46:54.961] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'private_kernel_tail' (mem: 645.38 MiB)
+Constructing DeciderProvingKey (mem: 
+[10:46:54.962] INFO: pxe:bb:native bb - 645.38 MiB)
+[10:46:54.991] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 645.38 MiB)
+goblin ecc op : 408/1000 (mem: 645.38 MiB)
+busread       : 2001/3000 (mem: 645.38 MiB)
+lookups       : 2/13000 (mem: 645.38 MiB)
+pub inputs    : 65/2000 (populated in decider pk constructor) (mem: 645.38 MiB)
+arithmetic    : 39358/59000 (mem: 645.38 MiB)
+delta range   : 4051/18000 (mem: 645.38 MiB)
+elliptic      : 2/6500 (mem: 645.38 MiB)
+[10:46:54.991] INFO: pxe:bb:native bb - 
+memory        : 11792/25000 (mem: 645.38 MiB)
+nnf           : 98/19000 (mem: 645.38 MiB)
+poseidon ext  : 4622/17000 (mem: 645.38 MiB)
+poseidon int  : 26336/96500 (mem: 645.38 MiB)
+overflow      : 0/0 (mem: 645.38 MiB)
+ (mem: 645.38 MiB)
+Total structured size: 260001 (mem: 645.38 MiB)
+allocating polynomials object in proving key... (mem: 645.38 MiB)
+[10:46:55.055] INFO: pxe:bb:native bb - populating trace... (mem: 656.76 MiB)
+[10:46:55.109] INFO: pxe:bb:native bb - time to construct proving key: 147 ms. (mem: 656.76 MiB)
+computing pg proof... (mem: 656.76 MiB)
+[10:46:55.110] INFO: pxe:bb:native bb - Accumulator hash in PG prover: 0x0a05683672cd75c6b5d4805b4f7ea687f27b7f700e4741dfc304f5f410829047 (mem: 656.76 MiB)
+[10:46:55.111] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x1ae33e4687a8e7bd6d23d8fb4a6ea36ad3fc3309d507d725397d743edfe46fde (mem: 656.76 MiB)
+[10:46:55.994] INFO: pxe:bb:native bb - oink prover on each incomplete key (mem: 656.76 MiB)
+[10:46:56.202] INFO: pxe:bb:native bb - perturbator round (mem: 656.88 MiB)
+[10:46:56.575] INFO: pxe:bb:native bb - combiner quotient round (mem: 656.88 MiB)
+[10:46:57.021] INFO: pxe:bb:native bb - folded (mem: 656.88 MiB)
+pg proof constructed (mem: 656.88 MiB)
+[10:46:57.022] INFO: pxe:bb:native bb - prove decider... (mem: 656.88 MiB)
+[10:46:57.978] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 757.88 MiB)
+[10:46:58.397] INFO: pxe:bb:native bb - completed 18 rounds of sumcheck (mem: 757.88 MiB)
+[10:46:59.887] INFO: pxe:bb:native bb - executed multivariate-to-univariate reduction (mem: 757.88 MiB)
+[10:47:00.286] INFO: pxe:bb:native bb - computed opening proof (mem: 757.88 MiB)
+finished decider proving. (mem: 757.88 MiB)
+[10:47:00.288] INFO: pxe:bb:native bb - Accumulator hash in PG verifier: 0x0a05683672cd75c6b5d4805b4f7ea687f27b7f700e4741dfc304f5f410829047 (mem: 757.88 MiB)
+[10:47:00.289] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x1ae33e4687a8e7bd6d23d8fb4a6ea36ad3fc3309d507d725397d743edfe46fde (mem: 757.88 MiB)
+[10:47:00.362] INFO: pxe:bb:native bb - ClientIvcLoad - loaded circuit 'hiding_kernel' (mem: 757.88 MiB)
+ClientIVC: accumulating hiding_kernel (mem: 
+[10:47:00.363] INFO: pxe:bb:native bb - 757.88 MiB)
+[10:47:00.404] INFO: pxe:bb:native bb - Previous accumulator hash in PG rec verifier: 0x0a05683672cd75c6b5d4805b4f7ea687f27b7f700e4741dfc304f5f410829047 (mem: 757.88 MiB)
+[10:47:00.419] INFO: pxe:bb:native bb - vk hash in Oink recursive verifier: 0x1ae33e4687a8e7bd6d23d8fb4a6ea36ad3fc3309d507d725397d743edfe46fde (mem: 757.88 MiB)
+expected vk hash: 0x1ae33e4687a8e7bd6d23d8fb4a6ea36ad3fc3309d507d725397d743edfe46fde (mem: 757.88 MiB)
+[10:47:00.528] INFO: pxe:bb:native bb - PG accum hash from IO: 0x0a05683672cd75c6b5d4805b4f7ea687f27b7f700e4741dfc304f5f410829047 (mem: 757.88 MiB)
+[10:47:00.537] INFO: pxe:bb:native bb - ClientIvcAccumulate - accumulating circuit 'hiding_kernel' (mem: 757.88 MiB)
+Constructing DeciderProvingKey (mem: 
+[10:47:00.537] INFO: pxe:bb:native bb - 757.88 MiB)
+[10:47:00.543] INFO: pxe:bb:native bb - Gate blocks summary: (actual gates / fixed capacity) (mem: 757.88 MiB)
+goblin ecc op : 586/1000 (mem: 757.88 MiB)
+busread       : 3/3000 (mem: 757.88 MiB)
+lookups       : 2/13000 (mem: 757.88 MiB)
+pub inputs    : 1874/2000 (populated in decider pk constructor) (mem: 757.88 MiB)
+arithmetic    : 13440/59000 (mem: 757.88 MiB)
+delta range   : 2715/18000 (mem: 757.88 MiB)
+elliptic      : 2/6500 (mem: 757.88 MiB)
+memory        : 2/25000 (mem: 757.88 MiB)
+nnf           : 74/19000 (mem: 757.88 MiB)
+poseidon ext  : 4912/17000 (mem: 757.88 MiB)
+[10:47:00.543] INFO: pxe:bb:native bb - 
+poseidon int  : 27989/96500 (mem: 757.88 MiB)
+overflow      : 0/0 (mem: 757.88 MiB)
+ (mem: 757.88 MiB)
+Total structured size: 260001 (mem: 757.88 MiB)
+allocating polynomials object in proving key... (mem: 757.88 MiB)
+[10:47:00.576] INFO: pxe:bb:native bb - populating trace... (mem: 757.88 MiB)
+[10:47:00.610] INFO: pxe:bb:native bb - time to construct proving key: 73 ms. (mem: 757.88 MiB)
+[10:47:00.610] INFO: pxe:bb:native bb - Constructing DeciderProvingKey (mem: 757.88 MiB)
+allocating polynomials object in proving key... (mem: 757.88 MiB)
+[10:47:00.636] INFO: pxe:bb:native bb - populating trace... (mem: 757.88 MiB)
+[10:47:00.678] INFO: pxe:bb:native bb - time to construct proving key: 67 ms. (mem: 757.88 MiB)
+[10:47:01.031] INFO: pxe:bb:native bb - vk hash in Oink prover: 0x08f9ce86791f5ed707161591c72ea898dc992dee488e9bcf82d207e241a4fa0d (mem: 757.88 MiB)
+[10:47:01.692] INFO: pxe:bb:native bb - created oink proof (mem: 757.88 MiB)
+[10:47:01.725] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 757.88 MiB)
+[10:47:02.175] INFO: pxe:bb:native bb - completed 16 rounds of sumcheck (mem: 757.88 MiB)
+[10:47:03.043] INFO: pxe:bb:native bb - executed multivariate-to-univariate reduction (mem: 757.88 MiB)
+[10:47:03.202] INFO: pxe:bb:native bb - computed opening proof (mem: 757.88 MiB)
+[10:47:03.203] INFO: pxe:bb:native bb - finished decider proving. (mem: 757.88 MiB)
+[10:47:03.207] INFO: pxe:bb:native bb - ClientIvcProve - generating proof for 5 accumulated circuits (mem: 757.88 MiB)
+[10:47:03.275] INFO: pxe:bb:native bb - Constructing a Goblin proof with num ultra ops = 1468 (mem: 757.88 MiB)
+[10:47:03.275] INFO: pxe:bb:native bb - prove eccvm... (mem: 757.88 MiB)
+[10:47:03.427] INFO: pxe:bb:native bb - using cached grumpkin crs with num points 65537 at: "/home/user/.bb-crs/grumpkin_g1.flat.dat" (mem: 757.88 MiB)
+[10:47:03.492] INFO: pxe:bb:native bb - Initialized Grumpkin prover CRS from memory with num points = 65537 (mem: 757.88 MiB)
+[10:47:03.493] INFO: pxe:bb:native bb - ECCVM vk hash in prover: 0x1ae0b9a22be9cf32b1a138fac0062ca8304f7a393c1664e83d3e0c57e2b4873e (mem: 757.88 MiB)
+[10:47:04.789] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 757.88 MiB)
+[10:47:05.684] INFO: pxe:bb:native bb - completed 16 rounds of sumcheck (mem: 757.88 MiB)
+[10:47:08.825] INFO: pxe:bb:native bb - finished eccvm proving. (mem: 757.88 MiB)
+prove translator... (mem: 757.88 MiB)
+[10:47:08.976] INFO: pxe:bb:native bb - Translator vk hash in prover: 0x06d623dfe5d6f6826735a9adfa4fd602146e0ccca2410e39e836b65b355fdeaa (mem: 757.88 MiB)
+[10:47:10.205] INFO: pxe:bb:native bb - starting sumcheck rounds... (mem: 757.88 MiB)
+[10:47:11.495] INFO: pxe:bb:native bb - completed 18 rounds of sumcheck (mem: 757.88 MiB)
+
+Transaction hash: 0x2cb86ae41b827c991cfd1175ef06c45a25fdefec7067f22a180e2f242c8c5fc3
+[10:47:14.156] INFO: pxe:bb:native bb - computed opening proof (mem: 757.88 MiB)
+[10:47:14.156] INFO: pxe:bb:native bb - finished translator proving. (mem: 757.88 MiB)
+ClientIvcProve - verifying the generated proof as a sanity check (mem: 757.88 MiB)
+[10:47:14.157] INFO: pxe:bb:native bb - vk hash in Oink verifier: 0x08f9ce86791f5ed707161591c72ea898dc992dee488e9bcf82d207e241a4fa0d (mem: 757.88 MiB)
+[10:47:14.192] INFO: pxe:bb:native bb - sumcheck_verified: 1 (mem: 757.88 MiB)
+libra_evals_verified: 1 (mem: 757.88 MiB)
+pairing_check_verified: 1 (mem: 757.88 MiB)
+Mega verified: 1 (mem: 757.88 MiB)
+[10:47:14.196] INFO: pxe:bb:native bb - ECCVM vk hash in verifier: 0x1ae0b9a22be9cf32b1a138fac0062ca8304f7a393c1664e83d3e0c57e2b4873e (mem: 757.88 MiB)
+[10:47:14.341] INFO: pxe:bb:native bb - eccvm sumcheck verified?: 1 (mem: 757.88 MiB)
+batch opening verified?: 1 (mem: 757.88 MiB)
+eccvm consistency check verified?: 1 (mem: 757.88 MiB)
+translation masking consistency checked?: 1 (mem: 757.88 MiB)
+[10:47:14.341] INFO: pxe:bb:native bb - Translator vk hash in verifier: 0x06d623dfe5d6f6826735a9adfa4fd602146e0ccca2410e39e836b65b355fdeaa (mem: 757.88 MiB)
+[10:47:14.365] INFO: pxe:bb:native bb - merge verified?: 1 (mem: 757.88 MiB)
+eccvm verified?: 1 (mem: 757.88 MiB)
+accumulator construction_verified?: 1 (mem: 757.88 MiB)
+translation verified?: 1 (mem: 757.88 MiB)
+consistency verified?: 1 (mem: 
+[10:47:14.365] INFO: pxe:bb:native bb - 757.88 MiB)
+Goblin verified: 1 (mem: 757.88 MiB)
+[10:47:14.365] INFO: pxe:bb:native bb - writing ClientIVC proof in directory "/home/user/.aztec/wallet/bb/tmp-wQX76i" (mem: 757.88 MiB)
+[10:47:14.446] INFO: pxe:bb:native Generated IVC proof {"duration":26782.65605,"eventName":"circuit-proving"}
+[10:47:14.660] INFO: pxe:service Sent transaction 0x2cb86ae41b827c991cfd1175ef06c45a25fdefec7067f22a180e2f242c8c5fc3
+Transaction has been mined
+ Tx fee: 39932880
+ Status: success
+ Block number: 9
+ Block hash: 0x041650b72d46d1e930e05d7b08a639338ca67961773754cffec63df1f189f55f
+Transaction hash stored in database with aliases last & set_portal_once-09d6
+
+
+
+user@pc:~/zk-coprocessor-bridge/apps$ npm run build
+
+> zk-coprocessor-bridge-apps@0.1.0 build
+> tsc -p tsconfig.json
+
+
+
+user@pc:~/zk-coprocessor-bridge/apps$ npm run sandbox -- enqueue --payload "hello sandbox 1"
+
+> zk-coprocessor-bridge-apps@0.1.0 sandbox
+> tsx src/sandbox.ts enqueue --payload hello sandbox 1
+
+{
+  "contentFr": "0x075586a557b65adf823278a260b984972825aa61ad204fb05b23e7384c070e99",
+  "leafIndex": "161",
+  "secretHash": "0x2010a8f4c94608798324c78688df12826fdeaf9f83ca5be51d420dafb1182e47",
+  "secretFr": "0x0fdf5c08f424feda6e03bb4cde75d3ba838795bf8fe5fe6596bdaeb4d9f01053"
+}
+
+
+user@pc:~/zk-coprocessor-bridge/apps$ npm run sandbox -- consume \
+  --content-fr 0x075586a557b65adf823278a260b984972825aa61ad204fb05b23e7384c070e99 \
+  --leaf-index 161 \
+  --secret-fr 0x0fdf5c08f424feda6e03bb4cde75d3ba838795bf8fe5fe6596bdaeb4d9f01053
+
+> zk-coprocessor-bridge-apps@0.1.0 sandbox
+> tsx src/sandbox.ts consume --content-fr 0x075586a557b65adf823278a260b984972825aa61ad204fb05b23e7384c070e99 --leaf-index 161 --secret-fr 0x0fdf5c08f424feda6e03bb4cde75d3ba838795bf8fe5fe6596bdaeb4d9f01053
