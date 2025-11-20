@@ -2,6 +2,9 @@
 
 This document summarizes the minimal steps required to run and verify the ZK Coprocessor Bridge using the Aztec Sandbox.
 
+🧾 **Latest Proof**: **Success ✅** — local sandbox test (2025-11-19)  
+Latest proof: [`proof-2025-11-19.md`](proofs/proof-2025-11-19.md)    Raw logs: [`log-2025-11-19.txt`](logs/log-2025-11-19.txt)
+
 ## Environment Note ⚠️
 
 During testing:
@@ -16,6 +19,9 @@ Working endpoints:
 
 This guide documents only the environment that was confirmed to work.
 
+> **Important**  
+Contract compilation, artifact generation, and general build steps should follow the testnet workflow documented in the main project README.  
+This sandbox guide only covers the minimal runtime steps (deploy, enqueue, consume).
 
 ## 1. Start Sandbox ▶️
 ```
@@ -32,7 +38,7 @@ We use: accounts:test0
 ## 3. Deploy the Aztec Contract
 ```
 cd aztec-contracts/contracts/zk-coprocessor-contracts
-export ART=target/zk-coprocessor-contracts.json
+export ART=target/zk_coprocessor_contracts-ZkCoprocessorContracts.json
 
 aztec-wallet deploy "$ART" \
   --from accounts:test0 \
@@ -118,4 +124,4 @@ You have verified:
 - L1 → Portal → Inbox → L2 message delivery
 - Secret-hash validation
 - Noir contract properly consumes messages
-- Full ZK Coprocessor Bridge flow works in sandbox
+- ZK Coprocessor Bridge flow works in sandbox
