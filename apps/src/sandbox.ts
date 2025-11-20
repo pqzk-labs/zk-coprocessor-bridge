@@ -3,11 +3,11 @@ import { Command } from "commander";
 import { ethers } from "ethers";
 import { spawn } from "child_process";
 
-const RPC_URL = process.env.RPC_URL || "http://127.0.0.1:8545";
+const RPC_URL = process.env.RPC_URL || "http://host.docker.internal:8545";
 const PORTAL = need("PORTAL_ADDRESS");
 const PK = need("PRIVATE_KEY");
 const AZTEC_CONTRACT = need("AZTEC_CONTRACT");
-const AZTEC_NODE_URL = process.env.AZTEC_NODE_URL || "http://127.0.0.1:8080";
+const AZTEC_NODE_URL = process.env.AZTEC_NODE_URL || "http://host.docker.internal:8080";
 const AZTEC_FROM = process.env.AZTEC_FROM || "accounts:test0";
 const AZTEC_PAYMENT = process.env.AZTEC_PAYMENT || "method=fee_juice,feePayer=test0";
 const AZTEC_WALLET_BIN = process.env.AZTEC_WALLET_BIN || "aztec-wallet";
@@ -23,19 +23,19 @@ const portalAbi = [
 const portal = new ethers.Contract(PORTAL, portalAbi, wallet);
 
 function need(n: string) { const v = process.env[n]; if (!v) throw new Error(`Missing env ${n}`); return v.trim(); }
-function hex32(n: bigint | string | number) { return ethers.utils.hexZeroPad("0x" + BigInt(n).toString(16), 32); }
-async function computeSecret(secret?: string) {
-  try {
-    const { Fr, computeSecretHash }: any = await import("@aztec/aztec.js");
-    const fr = secret ? Fr.fromString(secret) : Fr.random();
-    const h = await computeSecretHash(fr);
-    return { frHex: hex32(fr.toString()), hHex: hex32(h.toString()) };
-  } catch {
-    const frHex = secret ?? ethers.utils.hexlify(ethers.utils.randomBytes(32));
-    const hHex = hex32(BigInt(ethers.utils.keccak256(frHex)).toString());
-    return { frHex, hHex };
-  }
+function hex32(n: bigint | string | number) {
+  return ethers.utils.hexZeroPad("0x" + BigInt(n).toString(16), 32);
 }
+
+async function computeSecret(secret?: string) {
+  const { Fr, computeSecretHash }: any = await import("@aztec/aztec.js");
+  const fr = secret ? Fr.fromString(secret) : Fr.random();
+  const h  = await computeSecretHash(fr);
+  const frHex = hex32(fr.toString());  // preimage
+  const hHex  = hex32(h.toString());   // secretHash
+  return { frHex, hHex };
+}
+
 function runAztecWallet(args: string[]) {
   return new Promise<void>((resolve, reject) => {
     const p = spawn(AZTEC_WALLET_BIN, args, { stdio: "inherit" });
