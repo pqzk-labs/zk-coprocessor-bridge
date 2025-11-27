@@ -9,7 +9,7 @@ jobs:
   build-all:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       # Toolchains (system libs, Solana CLI, Anchor avm)
       - name: Setup toolchains
