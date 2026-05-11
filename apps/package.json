@@ -28,7 +28,7 @@
     "@types/bn.js": "^5.2.0",
     "@types/node": "^25.0.10",
     "tsx": "^4.21.0",
-    "typescript": "^5.5.4"
+    "typescript": "^6.0.3"
   },
   "license": "MIT OR Apache-2.0"
 }
