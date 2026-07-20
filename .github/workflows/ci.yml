@@ -58,7 +58,7 @@ jobs:
 
       # TypeScript (no npm ci per your request)
       - name: TypeScript build
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with: { node-version: 24 }
       - name: npm install
         working-directory: apps
